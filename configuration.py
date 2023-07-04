@@ -1,4 +1,6 @@
 SERVICE_URL = 'http://esb:8052/'
+REQUETS_ID = ''
+SENDER_SYSTEM = 'sys0'
 
 CREATE_CATEGORIES_PAGE = 'internal/categories/create'               #Страница создания категории
 UPDATE_CATEGORIES_PAGE = 'internal/categories/update'               #Страница обновления категории
