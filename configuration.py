@@ -1,6 +1,12 @@
 SERVICE_URL = 'http://esb:8052/'
-REQUETS_ID = ''
+REQUETS_ID = '1'
 SENDER_SYSTEM = 'sys0'
+
+INTERNAL_LOGIN = 'system@di-house.ru'
+INTERNAL_PASSWORD = 'Password1!'
+
+EXTERNAL_LOGIN = 'consumer@di-house.ru'
+EXTERNAL_PASSWORD = 'Password1!'
 
 CREATE_CATEGORIES_PAGE = 'internal/categories/create'               #Страница создания категории
 UPDATE_CATEGORIES_PAGE = 'internal/categories/update'               #Страница обновления категории
@@ -32,3 +38,5 @@ UPDATE_INT_ORDERS_STATUS_PAGE = 'internal/orders/status/update'     #Стран�
 DIAPISYSTEM_RESPONSES_ORDERS_CREATE = 'responses/orders/create'     #Страница создания заказа через diApi
 DIAPISYSTEM_RESPONSES_ORDERS_UPDATE = 'responses/orders/update'     #Страница обновления заказа через diApi
                                                                     #Тут должна быть страница обновления статуса заказа, но её нет в описании взаимодействия.
+
+CREATE_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "products1","name": "Все товары"}]}                                                                    
