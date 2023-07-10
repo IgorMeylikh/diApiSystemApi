@@ -8,12 +8,19 @@ class Response:
         self.response_json = response.json()
         self.response_status = response.status_code
 
-    #def validate(self. schema):
-        #if isinstance(self.response_json, list):
-            #for item in self.response_json:
-                #schema.parse_obj(item)
-        #else:
-            #schema.parse_obj(self.response_json)
+    def validate(self, schema):
+        if isinstance(self.response_json, list):
+            for item in self.response_json:
+                schema(item)
+        else:
+            schema(self.response_json)
+    
+    # def validate(self. schema):
+    #     if isinstance(self.response_json, list):
+    #         for item in self.response_json:
+    #             schema.parse_obj(item)
+    #     else:
+    #         schema.parse_obj(self.response_json)
 
     def assert_status_code(self, status_code):
         if isinstance(status_code, list):

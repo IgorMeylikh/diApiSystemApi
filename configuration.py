@@ -4,6 +4,7 @@ SENDER_SYSTEM = 'sys0'
 
 INTERNAL_LOGIN = 'system@di-house.ru'
 INTERNAL_PASSWORD = 'Password1!'
+HEADERS = {'Content-type': 'application/json', 'Accept': 'text/plain', 'requestId': REQUETS_ID, 'senderSystem': SENDER_SYSTEM}
 
 EXTERNAL_LOGIN = 'consumer@di-house.ru'
 EXTERNAL_PASSWORD = 'Password1!'
@@ -39,4 +40,8 @@ DIAPISYSTEM_RESPONSES_ORDERS_CREATE = 'responses/orders/create'     #Стран�
 DIAPISYSTEM_RESPONSES_ORDERS_UPDATE = 'responses/orders/update'     #Страница обновления заказа через diApi
                                                                     #Тут должна быть страница обновления статуса заказа, но её нет в описании взаимодействия.
 
-CREATE_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "products1","name": "Все товары"}]}                                                                    
+#JSON'ы для работы с категориями
+ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_1","name": "Все товары"}]}                                                                    
+REPEAT_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_1","name": "Все товары"}]} 
+VALIDATE_CATEGORY_AND_REPEAT_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_2","name": "Все товары"}, {"categorySystemid": "meylikh_1","name": "Все товары"}]} 
+VALIDATE_CATEGORY_AND_REPEAT_HIMSELF_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_3","name": "Все товары"}, {"categorySystemid": "meylikh_3","name": "Все товары"}]} 

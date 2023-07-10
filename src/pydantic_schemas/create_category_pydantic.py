@@ -1,17 +1,28 @@
 from pydantic import BaseModel, validator, Field
+from typing import List
 
-class CreateCategory(BaseModel):
-	"responses": {
-		"201": [
-			{
-				"description": "Сreated items.",
-				"items": [
-					{
-						"categoryId": "0f05166c-b92b-476a-a837-b30c04478c56",
-						"categorySystemId": "products1",
-						"name": "Все товары"
-					}
-				]
-			}
-		]
-	}
+class SuccessResponse(BaseModel):
+    description: str
+    items: List[]
+
+class SuccessItem(BaseModel):
+    categoryId: str
+    categorySystemId: str
+    name: str
+
+
+
+# response_data = {
+#     "201": [
+#         {
+#             "description": "Created items.",
+#             "items": [
+#                 {
+#                     "categoryId": "afda4588-949c-4885-9d91-bbc0b3b2aa8a",
+#                     "categorySystemId": "products3",
+#                     "name": "Все товары"
+#                 }
+#             ]
+#         }
+#     ]
+# }
