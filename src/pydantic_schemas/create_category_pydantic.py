@@ -1,14 +1,21 @@
 from pydantic import BaseModel, validator, Field
-from typing import List
+from typing import Any, List, Dict, Type
 
-class SuccessResponse(BaseModel):
-    description: str
-    items: List[]
+
+from pydantic.utils import ROOT_KEY
 
 class SuccessItem(BaseModel):
     categoryId: str
     categorySystemId: str
     name: str
+
+class SuccessStatusCode(BaseModel):
+    description: str
+    items: List[SuccessItem]
+
+class SuccessResponse(BaseModel):
+    __root__: Dict[str, Type[SuccessStatusCode]]
+
 
 
 
@@ -26,3 +33,16 @@ class SuccessItem(BaseModel):
 #         }
 #     ]
 # }
+
+
+# from pydantic import List, BaseModel, Field
+
+# class CategoryItem(BaseModel): category_id = Field(str) system_id = Field(str, alias='categorySystemId') name = Field(str)
+
+# class ListResponse(BaseModel): responses = List[CategoryItem]
+
+# # Создание объекта `ListResponse` с описанием `{ "201": [ { "описаниес": "Создан", "элементы ": [ { "категория_идентификатор": "fce923ac - 06c3 - 45ff - 819b - c036a3926d9d ", "идентификация_системы_категории": "товары 3 ", "наименование": "Весь товар "} ]} ]}`
+
+# list_response = ListResponse(responses=[CategoryItem(category_id='fce923ac-06c3-45ff-819b-c036a3926d9d', system_id='products3', name='Все товары')])
+
+# print(list_response.responses[0].
