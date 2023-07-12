@@ -1,9 +1,6 @@
 from pydantic import BaseModel, validator, Field
 from typing import Any, List, Dict, Type
 
-
-from pydantic.utils import ROOT_KEY
-
 class SuccessItem(BaseModel):
     categoryId: str
     categorySystemId: str
@@ -14,7 +11,9 @@ class SuccessStatusCode(BaseModel):
     items: List[SuccessItem]
 
 class SuccessResponse(BaseModel):
-    __root__: Dict[str, Type[SuccessStatusCode]]
+    responses: dict[int, List[SuccessStatusCode]]
+
+
 
 
 

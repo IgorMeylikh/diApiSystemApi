@@ -1,6 +1,6 @@
 SERVICE_URL = 'http://esb:8052/'
 REQUETS_ID = '1'
-SENDER_SYSTEM = 'sys0'
+SENDER_SYSTEM = 'test'
 
 INTERNAL_LOGIN = 'system@di-house.ru'
 INTERNAL_PASSWORD = 'Password1!'

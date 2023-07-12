@@ -6,12 +6,10 @@ from src.baseclasses.response import Response
 from src.pydantic_schemas.create_category_pydantic import SuccessResponse, SuccessItem, SuccessStatusCode
 
 #Тест на удаление всех категорий
-@pytest.mark.delete_all_cats
 def test_delete_all_categories():
     requests.delete(url=SERVICE_URL + CLEAR_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS)
 
 #Тест на создание категории с передачей 1 валидного элемента
-@pytest.mark.delete_all_cats
 def test_create_category():
     response = requests.post(url=SERVICE_URL + CREATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=ONE_CATEGORY_JSON)
     test_object = Response(response)
