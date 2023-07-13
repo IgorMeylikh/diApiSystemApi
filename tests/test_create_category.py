@@ -16,6 +16,7 @@ def test_create_category(fixture_check_available_endpoint):
         test_object.validateTotalSchema(SuccessResponse)
 
 #Тест на создание категории, которая уже существует системе
+
 @pytest.mark.run(order=10)
 def test_create_repeat_category(fixture_check_available_endpoint):
     if fixture_check_available_endpoint == True: 
