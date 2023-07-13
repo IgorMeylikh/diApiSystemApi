@@ -7,7 +7,7 @@ from configuration import *
 @pytest.fixture
 def fixture_check_available_endpoint():
     response = requests.post(url=SERVICE_URL + CREATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json={})
-    assert response.status_code == 200, 'Ошибка статус кода'
+    assert response.status_code == 200, 'Нет доступа к ресурсу по переданным логину, паролю и заголовкам'
     if response.status_code == 200:
         return True
     else:
