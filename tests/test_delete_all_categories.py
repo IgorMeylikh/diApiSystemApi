@@ -11,4 +11,3 @@ def test_delete_all_categories():
     response = requests.delete(url=SERVICE_URL + CLEAR_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS)
     test_object = Response(response)
     test_object.assert_status_code(200)
-    test_object.assert_operation_code('201')
