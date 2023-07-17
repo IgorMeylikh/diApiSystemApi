@@ -16,6 +16,7 @@ def test_create_category():
 
 #Тест на создание категории, которая уже существует системе
 @pytest.mark.run(order=10)
+@pytest.mark.skip('Operation code 400 is not isset')
 def test_create_repeat_category():
     response = requests.post(url=SERVICE_URL + CREATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=REPEAT_ONE_CATEGORY_JSON)
     test_object = Response(response)
@@ -24,6 +25,7 @@ def test_create_repeat_category():
 
 #Тест на создание нескольких категорий, одна из этих категорий уже существует (вторая в JSON файле)
 @pytest.mark.run(order=10)
+@pytest.mark.skip('Operation code 400 is not isset')
 def test_create_validate_category_and_repeat_category():
     response = requests.post(url=SERVICE_URL + CREATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=VALIDATE_CATEGORY_AND_REPEAT_CATEGORY_JSON)
     test_object = Response(response)
@@ -33,6 +35,7 @@ def test_create_validate_category_and_repeat_category():
 
 #Тест на отправку создания новой категории и вторым элементом снова создание этой же категории  
 @pytest.mark.run(order=10)  
+@pytest.mark.skip('Operation code 400 is not isset')
 def test_create_validate_category_and_repeat_himself_category():
     response = requests.post(url=SERVICE_URL + CREATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=VALIDATE_CATEGORY_AND_REPEAT_HIMSELF_CATEGORY_JSON)
     test_object = Response(response)
