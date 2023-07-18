@@ -1,36 +1,42 @@
 from pydantic import BaseModel, validator, Field
 from typing import Any, List, Dict, Type
 
-class CreateCategorySuccessItem(BaseModel):
+class CreateSubcategorySuccessItem(BaseModel):
     categoryId: str
     categorySystemId: str
     name: str
+    parentId: str
+    parentSystemId: str
 
-class CreateCategorySuccessStatusCode(BaseModel):
+class CreateSubcategorySuccessStatusCode(BaseModel):
     description: str
-    items: List[CreateCategorySuccessItem]
+    items: List[CreateSubcategorySuccessItem]
 
-class CreateCategorySuccessResponse(BaseModel):
-    responses: dict[int, List[CreateCategorySuccessStatusCode]]
-
-
+class CreateSubcategorySuccessResponse(BaseModel):
+    responses: dict[int, List[CreateSubcategorySuccessStatusCode]]
 
 
 
 
-# response_data = {
-#     "201": [
-#         {
-#             "description": "Created items.",
-#             "items": [
-#                 {
-#                     "categoryId": "afda4588-949c-4885-9d91-bbc0b3b2aa8a",
-#                     "categorySystemId": "products3",
-#                     "name": "Все товары"
-#                 }
-#             ]
-#         }
-#     ]
+
+
+# {
+# 	"responses": {
+# 		"201": [
+# 			{
+# 				"description": "Created items.",
+# 				"items": [
+# 					{
+# 						"categoryId": "4df04419-61ff-44fd-9c97-eb035dad408e",
+# 						"categorySystemId": "submeylikh_2",
+# 						"name": "Все товары",
+# 						"parentId": "33e67fcc-c360-4ee5-beba-1da5248f8463",
+# 						"parentSystemId": "meylikh_1"
+# 					}
+# 				]
+# 			}
+# 		]
+# 	}
 # }
 
 
