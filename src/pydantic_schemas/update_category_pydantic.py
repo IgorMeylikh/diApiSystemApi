@@ -5,6 +5,8 @@ class UpdateCategorySuccessItem(BaseModel):
     categoryId: str
     categorySystemId: str
     name: str
+    parentId: str
+    parentSystemId: str
 
 class UpdateCategorySuccessStatusCode(BaseModel):
     description: str

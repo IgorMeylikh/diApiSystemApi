@@ -13,3 +13,6 @@ def test_create_category_positive():
     test_object.assert_status_code(200)
     test_object.assert_operation_code('201')
     test_object.validateTotalSchema(CreateCategorySuccessResponse)
+
+# Тесты на обновление категории когда JSON не валидный: отсутствуют обязательные ключи; лишняя запятая после ключа и т.д.
+# Тесты на обновление несуществующей категории
