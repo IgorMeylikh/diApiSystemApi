@@ -13,11 +13,6 @@ class CreateCategorySuccessStatusCode(BaseModel):
 class CreateCategorySuccessResponse(BaseModel):
     responses: dict[int, List[CreateCategorySuccessStatusCode]]
 
-
-
-
-
-
 # response_data = {
 #     "201": [
 #         {
