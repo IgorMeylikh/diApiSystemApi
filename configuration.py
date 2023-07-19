@@ -1,6 +1,6 @@
 SERVICE_URL = 'http://esb:8052/'
 REQUETS_ID = '1'
-SENDER_SYSTEM = 'test'
+SENDER_SYSTEM = 'meylikh'
 
 INTERNAL_LOGIN = 'system@di-house.ru'
 INTERNAL_PASSWORD = 'Password1!'
@@ -51,7 +51,9 @@ CREATE_ONE_SUBCATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_1","nam
 CREATE_REPEAT_ONE_SUBCATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_1","name": "submeylikh_1", "parentSystemId": "meylikh_1"}]}
 
 #JSON'ы для работы с категориями (Обновление)
-UPDATE_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_1","name": "submeylikh_1"}]}                                                                    
+UPDATE_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_1","name": "submeylikh_1"}]}           
+UPDATE_NOT_REQUIRED_JSON = {"items":[{"categorySystemId": "submeylikh_1"}]} # Отсутствует хотя бы один обязательный параметр   
+UPDATE_ONE_NOT_ISSET_CATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_2","name": "submeylikh_1"}]}        
 # CREATE_REPEAT_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_1","name": "Все товары"}]} 
 # CREATE_VALIDATE_CATEGORY_AND_REPEAT_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_2","name": "Все товары"}, {"categorySystemid": "meylikh_1","name": "Все товары"}]} 
 # CREATE_VALIDATE_CATEGORY_AND_REPEAT_HIMSELF_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_3","name": "Все товары"}, {"categorySystemid": "meylikh_3","name": "Все товары"}]}
