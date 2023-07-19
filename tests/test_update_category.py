@@ -1,7 +1,7 @@
 import pytest 
 import requests
 from requests.auth import HTTPBasicAuth
-from configuration import SERVICE_URL, UPDATE_CATEGORIES_PAGE, INTERNAL_LOGIN, INTERNAL_PASSWORD, HEADERS, UPDATE_ONE_CATEGORY_JSON, UPDATE_ONE_NOT_ISSET_CATEGORY_JSON, UPDATE_NOT_REQUIRED_JSON
+from configuration import SERVICE_URL, UPDATE_CATEGORIES_PAGE, INTERNAL_LOGIN, INTERNAL_PASSWORD, HEADERS, UPDATE_ONE_CATEGORY_JSON, UPDATE_ONE_NOT_ISSET_CATEGORY_JSON, UPDATE_NOT_REQUIRED_JSON, UPDATE_NOT_VALID_JSON
 from src.baseclasses.response import Response
 from src.pydantic_schemas.create_category_pydantic import CreateCategorySuccessResponse, CreateCategorySuccessItem, CreateCategorySuccessStatusCode
 
@@ -22,12 +22,19 @@ def test_update_not_required_param_negative():
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')
 
-# Тесты на обновление категории когда JSON не валидный: лишняя запятая после ключа и т.д.
+# Тесты на обновление категории когда JSON не валидный: лишняя запятая после ключа
+@pytest.mark.run(order=20)
+def test_update_not_valid_json_negative():
+    print(UPDATE_NOT_VALID_JSON)
+    response = requests.post(url=SERVICE_URL + UPDATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_NOT_VALID_JSON)
+    test_object = Response(response)
+    test_object.assert_status_code(200)
+    test_object.assert_operation_code('400')
 
 # Тесты на обновление несуществующей категории
 @pytest.mark.run(order=20)
 @pytest.mark.skip('Operation code 400 is not isset')
-def test_update_not_isset_category_positive():
+def test_update_not_isset_category_negative():
     response = requests.post(url=SERVICE_URL + UPDATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_ONE_NOT_ISSET_CATEGORY_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)

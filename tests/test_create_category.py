@@ -43,7 +43,7 @@ def test_create_validate_category_and_repeat_himself_category_negative():
     test_object.assert_operation_code('201')
     test_object.assert_operation_code('400')   
 
-# Тесты на создание категории когда JSON не валидный: отсутствуют обязательные ключи; лишняя запятая после ключа и т.д.
-
+# Тесты на создание категории когда JSON не валидный: отсутствуют обязательные ключи.
+# Тесты на создание категории когда JSON не валидный: лишняя запятая после ключа
 
 
