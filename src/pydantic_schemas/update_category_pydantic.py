@@ -13,30 +13,21 @@ class UpdateCategorySuccessStatusCode(BaseModel):
 class UpdateCategorySuccessResponse(BaseModel):
     responses: dict[int, List[UpdateCategorySuccessStatusCode]]
 
-# response_data = {
-#     "201": [
-#         {
-#             "description": "Created items.",
-#             "items": [
-#                 {
-#                     "categoryId": "afda4588-949c-4885-9d91-bbc0b3b2aa8a",
-#                     "categorySystemId": "products3",
-#                     "name": "Все товары"
-#                 }
-#             ]
-#         }
-#     ]
+# {
+# 	"responses": {
+# 		"200": [
+# 			{
+# 				"description": "Updated items.",
+# 				"items": [
+# 					{
+# 						"categoryId": "a1484222-4fff-4ca8-804a-ea14fc9f3cdd",
+# 						"categorySystemId": "submeylikh_1",
+# 						"name": "Все товары",
+# 						"parentId": "4456f616-0cd7-49af-99a3-d6cc30c1f0db",
+# 						"parentSystemId": "meylikh_1"
+# 					}
+# 				]
+# 			}
+# 		]
+# 	}
 # }
-
-
-# from pydantic import List, BaseModel, Field
-
-# class CategoryItem(BaseModel): category_id = Field(str) system_id = Field(str, alias='categorySystemId') name = Field(str)
-
-# class ListResponse(BaseModel): responses = List[CategoryItem]
-
-# # Создание объекта `ListResponse` с описанием `{ "201": [ { "описаниес": "Создан", "элементы ": [ { "категория_идентификатор": "fce923ac - 06c3 - 45ff - 819b - c036a3926d9d ", "идентификация_системы_категории": "товары 3 ", "наименование": "Весь товар "} ]} ]}`
-
-# list_response = ListResponse(responses=[CategoryItem(category_id='fce923ac-06c3-45ff-819b-c036a3926d9d', system_id='products3', name='Все товары')])
-
-# print(list_response.responses[0].
