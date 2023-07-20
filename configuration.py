@@ -41,11 +41,11 @@ DIAPISYSTEM_RESPONSES_ORDERS_UPDATE = 'responses/orders/update'     #Стран�
                                                                     #Тут должна быть страница обновления статуса заказа, но её нет в описании взаимодействия.
 
 #JSON'ы для работы с категориями (Создание)
-CREATE_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_1","name": "meylikh_1"}]}          
+CREATE_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_1","name": "meylikh_1"}]}           
 CREATE_REPEAT_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_1","name": "meylikh_1"}]} 
-CREATE_VALIDATE_CATEGORY_AND_REPEAT_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_2","name": "meylikh_2"}, {"categorySystemid": "meylikh_1","name": "meylikh_1"}]} 
+CREATE_VALIDATE_CATEGORY_AND_REPEAT_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_2","name": "meylikh_2"}, {"categorySystemid": "meylikh_1","name": "meylikh_1"}]}
 CREATE_VALIDATE_CATEGORY_AND_REPEAT_HIMSELF_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_3","name": "meylikh_3"}, {"categorySystemid": "meylikh_3","name": "meylikh_3"}]}
-CREATE_NOT_REQUIRED_JSON = {"items":[{"categorySystemid": "meylikh_nr"}]} 
+CREATE_NOT_REQUIRED_JSON = {"items":[{"categorySystemid": "meylikh_nr"}]}
 CREATE_NOT_VALID_JSON = {"items":[{"categorySystemid": "meylikh_1","name": "meylikh_1",}]}
 
 #JSON'ы для работы с категориями (Создание подкатегории)
@@ -55,7 +55,7 @@ CREATE_REPEAT_ONE_SUBCATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_
 #JSON'ы для работы с категориями (Обновление)
 UPDATE_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_1","name": "submeylikh_1"}]}           
 UPDATE_NOT_REQUIRED_JSON = {"items":[{"categorySystemId": "submeylikh_1"}]} # Отсутствует хотя бы один обязательный параметр   
-UPDATE_ONE_NOT_ISSET_CATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_2","name": "submeylikh_1"}]}     
+UPDATE_ONE_NOT_ISSET_CATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_2","name": "submeylikh_1"}]}   
 UPDATE_NOT_VALID_JSON = {"items":[{"categorySystemid": "submeylikh_1","name": "submeylikh_1",}]}
 # CREATE_REPEAT_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_1","name": "Все товары"}]} 
 # CREATE_VALIDATE_CATEGORY_AND_REPEAT_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_2","name": "Все товары"}, {"categorySystemid": "meylikh_1","name": "Все товары"}]} 
