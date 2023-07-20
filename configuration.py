@@ -44,7 +44,9 @@ DIAPISYSTEM_RESPONSES_ORDERS_UPDATE = 'responses/orders/update'     #Стран�
 CREATE_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_1","name": "meylikh_1"}]}          
 CREATE_REPEAT_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_1","name": "meylikh_1"}]} 
 CREATE_VALIDATE_CATEGORY_AND_REPEAT_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_2","name": "meylikh_2"}, {"categorySystemid": "meylikh_1","name": "meylikh_1"}]} 
-CREATE_VALIDATE_CATEGORY_AND_REPEAT_HIMSELF_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_3","name": "meylikh_3"}, {"categorySystemid": "meylikh_3","name": "meylikh_3"}]} 
+CREATE_VALIDATE_CATEGORY_AND_REPEAT_HIMSELF_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_3","name": "meylikh_3"}, {"categorySystemid": "meylikh_3","name": "meylikh_3"}]}
+CREATE_NOT_REQUIRED_JSON = {"items":[{"categorySystemid": "meylikh_nr"}]} 
+CREATE_NOT_VALID_JSON = {"items":[{"categorySystemid": "meylikh_1","name": "meylikh_1",}]}
 
 #JSON'ы для работы с категориями (Создание подкатегории)
 CREATE_ONE_SUBCATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_1","name": "submeylikh_1", "parentSystemId": "meylikh_1"}]} 
