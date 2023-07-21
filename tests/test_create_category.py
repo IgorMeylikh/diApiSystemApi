@@ -60,7 +60,7 @@ def test_create_not_valid_json_negative():
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')  
 
- # Тест отправки пустого (без items) JSON'a
+# Тест отправки пустого (без items) JSON'a
 @pytest.mark.run(order=10)  
 # @pytest.mark.skip('Maybe this test is not needed.')
 def test_create_category_without_items_json_negative():
@@ -87,7 +87,6 @@ def test_create_category_without_category_system_id_json_negative():
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')      
 
-# Написать тесты когда не отправлен нужный ключ в JSON'e    
 
 # Необходимо в тесты добавить сравнение эталонной и возвращаемой схем JSON
 # Для этого для каждого вида запроса, возвращающего свой ответ, написать класс Pydantic, который будет описывать схему ответа JSON
