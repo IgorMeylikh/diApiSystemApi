@@ -24,7 +24,7 @@ def test_update_not_required_param_negative():
 
 # Тесты на обновление категории когда JSON не валидный: лишняя запятая после ключа
 @pytest.mark.run(order=20)
-@pytest.mark.skip('Maybe this test is not needed.')
+# @pytest.mark.skip('Maybe this test is not needed.')
 def test_update_not_valid_json_negative():
     response = requests.post(url=SERVICE_URL + UPDATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_NOT_VALID_JSON)
     test_object = Response(response)
@@ -33,7 +33,7 @@ def test_update_not_valid_json_negative():
 
 # Тесты на обновление несуществующей категории
 @pytest.mark.run(order=20)
-@pytest.mark.skip('Operation code 400 is not isset.')
+# @pytest.mark.skip('Operation code 400 is not isset.')
 def test_update_not_isset_category_negative():
     response = requests.post(url=SERVICE_URL + UPDATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_ONE_NOT_ISSET_CATEGORY_JSON)
     test_object = Response(response)
