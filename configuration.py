@@ -41,7 +41,8 @@ DIAPISYSTEM_RESPONSES_ORDERS_UPDATE = 'responses/orders/update'     #Стран�
                                                                     #Тут должна быть страница обновления статуса заказа, но её нет в описании взаимодействия.
 
 #JSON'ы для работы с категориями (Создание)
-CREATE_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_1","name": "meylikh_1"}]}           
+CREATE_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_1","name": "meylikh_1"}]}       
+CREATE_SEVERAL_CATEGORIES_JSON = {"items":[{"categorySystemid": "test_1","name": "test_1"}, {"categorySystemid": "test_2","name": "test_2"}, {"categorySystemid": "test_3","name": "test_3"}, {"categorySystemid": "test_4","name": "test_4"}, {"categorySystemid": "test_5","name": "test_5"}]}     
 CREATE_REPEAT_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_1","name": "meylikh_1"}]} 
 CREATE_VALIDATE_CATEGORY_AND_REPEAT_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_2","name": "meylikh_2"}, {"categorySystemid": "meylikh_1","name": "meylikh_1"}]}
 CREATE_VALIDATE_CATEGORY_AND_REPEAT_HIMSELF_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_3","name": "meylikh_3"}, {"categorySystemid": "meylikh_3","name": "meylikh_3"}]}
