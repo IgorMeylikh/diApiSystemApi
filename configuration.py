@@ -59,11 +59,17 @@ CREATE_ONE_SUBCATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_1","nam
 CREATE_REPEAT_ONE_SUBCATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_1","name": "submeylikh_1", "parentSystemId": "meylikh_1"}]}
 
 #JSON'ы для работы с категориями (Обновление)
-UPDATE_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_1","name": "submeylikh_1"}]}           
+UPDATE_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_1","name": "submeylikh_1"}]}      
+UPDATE_SEVERAL_CATEGORIES_JSON = {"items":[{"categorySystemid": "test_3","name": "test_6"}, {"categorySystemid": "test_4","name": "test_7"}]}   
+UPDATE_SEVERAL_CATEGORIES_ONE_NOT_ISSET_JSON = {"items":[{"categorySystemid": "test_6","name": "test_3"}, {"categorySystemid": "test_7","name": "test_4"}, {"categorySystemid": "test_8","name": "test_6"}]}  
 UPDATE_NOT_REQUIRED_JSON = {"items":[{"categorySystemId": "submeylikh_1"}]} # Отсутствует хотя бы один обязательный параметр   
 UPDATE_ONE_NOT_ISSET_CATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_2","name": "submeylikh_1"}]}   
 UPDATE_NOT_VALID_JSON = '{"items":[{"categorySystemid": "submeylikh_1","name": "submeylikh_1",}]}'
 UPDATE_CATEGORY_WITHOUT_CATEGORY_SYSTEM_ID_JSON = {"items":[{"categorySystemId": "meylikh_1","name": "meylikh_1",}]} 
+
+#JSON'ы для работы с категориями (Удаление)
+DELETE_ONE_CATEGORY_JSON = {"items": [{"categorySystemId": "test_1"}]}
+DELETE_SEVERAL_CATEGORIES_JSON = {"items": [{"categorySystemId": "test_2"}, {"categorySystemId": "test_3"}]}
 
 # CREATE_REPEAT_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_1","name": "Все товары"}]} 
 # CREATE_VALIDATE_CATEGORY_AND_REPEAT_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_2","name": "Все товары"}, {"categorySystemid": "meylikh_1","name": "Все товары"}]} 
