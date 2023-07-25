@@ -73,25 +73,9 @@ DELETE_SEVERAL_CATEGORIES_JSON = {"items": [{"categorySystemId": "test_2"}, {"ca
 DELETE_ONE_NOT_ISSET_CATEGORY_JSON = {"items": [{"categorySystemId": "test_7"}]}
 
 # JSON'ы для работы с товарами (создание)
-CREATE_ONE_PRODUCT_WITH_OPTIONAL_JSON = {
-    "items": [
-        {
-            "productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1", 
-            "name": "Тестовый ноутбук 1", 
-            "sku": "TEST-SKU-1", 
-            "type": "product", 
-            "categorySystemId": "meylikh_1", 
-            "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg" 
-        }
-    ]
-}
-CREATE_ONE_PRODUCT_WITHOUT_OPTIONAL_JSON = {
-    "items": [
-        {
-            "productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-2", 
-            "name": "Тестовый ноутбук 2", 
-            "sku": "TEST-SKU-2", 
-            "type": "product" 
-        }
-    ]
-}
+CREATE_ONE_PRODUCT_WITH_OPTIONAL_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1", "name": "Тестовый ноутбук 1", "sku": "TEST-SKU-1", "type": "product", "categorySystemId": "meylikh_1", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}]}
+CREATE_ONE_PRODUCT_WITHOUT_OPTIONAL_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-2", "name": "Тестовый ноутбук 2", "sku": "TEST-SKU-2", "type": "product"}]}
+CREATE_ONE_PRODUCT_WITHOUT_PRODUCT_SYSTEM_ID_JSON = {"items": [{"name": "Тестовый ноутбук 1", "sku": "TEST-SKU-1", "type": "product"}]}
+CREATE_ONE_PRODUCT_WITHOUT_NAME_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1", "sku": "TEST-SKU-1", "type": "product"}]}
+CREATE_ONE_PRODUCT_WITHOUT_SKU_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-2", "name": "Тестовый ноутбук 2", "type": "product"}]}
+CREATE_ONE_PRODUCT_WITHOUT_TYPE_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1", "name": "Тестовый ноутбук 1", "sku": "TEST-SKU-1"}]}

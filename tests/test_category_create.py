@@ -5,7 +5,7 @@ from configuration import SERVICE_URL, CREATE_CATEGORIES_PAGE, INTERNAL_LOGIN, I
 from src.baseclasses.response import Response
 from src.pydantic_schemas.create_category_pydantic import CreateCategorySuccessResponse, CreateCategorySuccessItem, CreateCategorySuccessStatusCode
 
-#Тест на создание категории с передачей 1 валидного элемента
+# Тест на создание категории с передачей 1 валидного элемента
 @pytest.mark.run(order=10)
 def test_create_category_positive():
     response = requests.post(url=SERVICE_URL + CREATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=CREATE_ONE_CATEGORY_JSON)
@@ -24,7 +24,7 @@ def test_create_several_categories_positive():
     test_object.assert_operation_code('201')
     test_object.validateTotalSchema(CreateCategorySuccessResponse)
 
-#Тест на создание категории, которая уже существует системе
+# Тест на создание категории, которая уже существует системе
 @pytest.mark.run(order=10)
 # @pytest.mark.skip('Operation code 400 is not isset.')
 def test_create_repeat_category_negative():
@@ -33,7 +33,7 @@ def test_create_repeat_category_negative():
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')
 
-#Тест на создание нескольких категорий, одна из этих категорий уже существует (вторая в JSON файле)
+# Тест на создание нескольких категорий, одна из этих категорий уже существует (вторая в JSON файле)
 @pytest.mark.run(order=10)
 # @pytest.mark.skip('Operation code 400 is not isset.')
 def test_create_validate_category_and_repeat_category_negative():
@@ -43,7 +43,7 @@ def test_create_validate_category_and_repeat_category_negative():
     test_object.assert_operation_code('201')
     test_object.assert_operation_code('400')    
 
-#Тест на отправку создания новой категории и вторым элементом снова создание этой же категории  
+# Тест на отправку создания новой категории и вторым элементом снова создание этой же категории  
 @pytest.mark.run(order=10)  
 # @pytest.mark.skip('Operation code 400 is not isset.')
 def test_create_validate_category_and_repeat_himself_category_negative():
