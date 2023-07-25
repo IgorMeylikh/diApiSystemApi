@@ -1,6 +1,6 @@
 SERVICE_URL = 'http://esb:8052/'
 REQUETS_ID = '1'
-SENDER_SYSTEM = 'meylikh'
+SENDER_SYSTEM = 'erpdhecom'
 
 INTERNAL_LOGIN = 'system@di-house.ru'
 INTERNAL_PASSWORD = 'Password1!'
@@ -65,11 +65,12 @@ UPDATE_SEVERAL_CATEGORIES_ONE_NOT_ISSET_JSON = {"items":[{"categorySystemid": "t
 UPDATE_NOT_REQUIRED_JSON = {"items":[{"categorySystemId": "submeylikh_1"}]} # Отсутствует хотя бы один обязательный параметр   
 UPDATE_ONE_NOT_ISSET_CATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_2","name": "submeylikh_1"}]}   
 UPDATE_NOT_VALID_JSON = '{"items":[{"categorySystemid": "submeylikh_1","name": "submeylikh_1",}]}'
-UPDATE_CATEGORY_WITHOUT_CATEGORY_SYSTEM_ID_JSON = {"items":[{"categorySystemId": "meylikh_1","name": "meylikh_1",}]} 
+UPDATE_CATEGORY_WITHOUT_CATEGORY_SYSTEM_ID_JSON = {"items":[{"name": "meylikh_1",}]} 
 
 #JSON'ы для работы с категориями (Удаление)
 DELETE_ONE_CATEGORY_JSON = {"items": [{"categorySystemId": "test_1"}]}
 DELETE_SEVERAL_CATEGORIES_JSON = {"items": [{"categorySystemId": "test_2"}, {"categorySystemId": "test_3"}]}
+DELETE_ONE_NOT_ISSET_CATEGORY_JSON = {"items": [{"categorySystemId": "test_7"}]}
 
 # CREATE_REPEAT_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_1","name": "Все товары"}]} 
 # CREATE_VALIDATE_CATEGORY_AND_REPEAT_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_2","name": "Все товары"}, {"categorySystemid": "meylikh_1","name": "Все товары"}]} 
