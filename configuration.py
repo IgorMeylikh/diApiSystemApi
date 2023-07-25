@@ -43,7 +43,7 @@ DIAPISYSTEM_RESPONSES_ORDERS_UPDATE = 'responses/orders/update'     #Стран�
 # Пустой JSON
 EMPTY_JSON = {}
 
-#JSON'ы для работы с категориями (Создание)
+# JSON'ы для работы с категориями (Создание)
 CREATE_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_1","name": "meylikh_1"}]}       
 CREATE_SEVERAL_CATEGORIES_JSON = {"items":[{"categorySystemid": "test_1","name": "test_1"}, {"categorySystemid": "test_2","name": "test_2"}, {"categorySystemid": "test_3","name": "test_3"}, {"categorySystemid": "test_4","name": "test_4"}, {"categorySystemid": "test_5","name": "test_5"}]}     
 CREATE_REPEAT_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_1","name": "meylikh_1"}]} 
@@ -54,11 +54,11 @@ CREATE_NOT_VALID_JSON = '{"items":[{"categorySystemid": "meylikh_1","name": "mey
 CREATE_CATEGORY_WITHOUT_CATEGORY_SYSTEM_ID_JSON = {"items":[{"name": "meylikh_without_categorySystemid"}]}    
 CREATE_CATEGORY_WITHOUT_NAME_JSON = {"items":[{"categorySystemid": "meylikh_without_name"}]}
 
-#JSON'ы для работы с категориями (Создание подкатегории)
+# JSON'ы для работы с категориями (Создание подкатегории)
 CREATE_ONE_SUBCATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_1","name": "submeylikh_1", "parentSystemId": "meylikh_1"}]} 
 CREATE_REPEAT_ONE_SUBCATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_1","name": "submeylikh_1", "parentSystemId": "meylikh_1"}]}
 
-#JSON'ы для работы с категориями (Обновление)
+# JSON'ы для работы с категориями (Обновление)
 UPDATE_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_1","name": "submeylikh_1"}]}      
 UPDATE_SEVERAL_CATEGORIES_JSON = {"items":[{"categorySystemid": "test_3","name": "test_6"}, {"categorySystemid": "test_4","name": "test_7"}]}   
 UPDATE_SEVERAL_CATEGORIES_ONE_NOT_ISSET_JSON = {"items":[{"categorySystemid": "test_6","name": "test_3"}, {"categorySystemid": "test_7","name": "test_4"}, {"categorySystemid": "test_8","name": "test_6"}]}  
@@ -67,11 +67,31 @@ UPDATE_ONE_NOT_ISSET_CATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_
 UPDATE_NOT_VALID_JSON = '{"items":[{"categorySystemid": "submeylikh_1","name": "submeylikh_1",}]}'
 UPDATE_CATEGORY_WITHOUT_CATEGORY_SYSTEM_ID_JSON = {"items":[{"name": "meylikh_1",}]} 
 
-#JSON'ы для работы с категориями (Удаление)
+# JSON'ы для работы с категориями (Удаление)
 DELETE_ONE_CATEGORY_JSON = {"items": [{"categorySystemId": "test_1"}]}
 DELETE_SEVERAL_CATEGORIES_JSON = {"items": [{"categorySystemId": "test_2"}, {"categorySystemId": "test_3"}]}
 DELETE_ONE_NOT_ISSET_CATEGORY_JSON = {"items": [{"categorySystemId": "test_7"}]}
 
-# CREATE_REPEAT_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_1","name": "Все товары"}]} 
-# CREATE_VALIDATE_CATEGORY_AND_REPEAT_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_2","name": "Все товары"}, {"categorySystemid": "meylikh_1","name": "Все товары"}]} 
-# CREATE_VALIDATE_CATEGORY_AND_REPEAT_HIMSELF_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_3","name": "Все товары"}, {"categorySystemid": "meylikh_3","name": "Все товары"}]}
+# JSON'ы для работы с товарами (создание)
+CREATE_ONE_PRODUCT_WITH_OPTIONAL_JSON = {
+    "items": [
+        {
+            "productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1", 
+            "name": "Тестовый ноутбук 1", 
+            "sku": "TEST-SKU-1", 
+            "type": "product", 
+            "categorySystemId": "meylikh_1", 
+            "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg" 
+        }
+    ]
+}
+CREATE_ONE_PRODUCT_WITHOUT_OPTIONAL_JSON = {
+    "items": [
+        {
+            "productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-2", 
+            "name": "Тестовый ноутбук 2", 
+            "sku": "TEST-SKU-2", 
+            "type": "product" 
+        }
+    ]
+}
