@@ -1,6 +1,6 @@
 SERVICE_URL = 'http://esb:8052/'
 REQUETS_ID = '1'
-SENDER_SYSTEM = 'erpdhecom'
+SENDER_SYSTEM = 'meylikh'
 
 INTERNAL_LOGIN = 'system@di-house.ru'
 INTERNAL_PASSWORD = 'Password1!'
@@ -44,37 +44,45 @@ DIAPISYSTEM_RESPONSES_ORDERS_UPDATE = 'responses/orders/update'     #Стран�
 EMPTY_JSON = {}
 
 # JSON'ы для работы с категориями (Создание)
-CREATE_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_1","name": "meylikh_1"}]}       
-CREATE_SEVERAL_CATEGORIES_JSON = {"items":[{"categorySystemid": "test_1","name": "test_1"}, {"categorySystemid": "test_2","name": "test_2"}, {"categorySystemid": "test_3","name": "test_3"}, {"categorySystemid": "test_4","name": "test_4"}, {"categorySystemid": "test_5","name": "test_5"}]}     
-CREATE_REPEAT_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_1","name": "meylikh_1"}]} 
-CREATE_VALIDATE_CATEGORY_AND_REPEAT_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_2","name": "meylikh_2"}, {"categorySystemid": "meylikh_1","name": "meylikh_1"}]}
-CREATE_VALIDATE_CATEGORY_AND_REPEAT_HIMSELF_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_3","name": "meylikh_3"}, {"categorySystemid": "meylikh_3","name": "meylikh_3"}]}
+CREATE_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_1_id","name": "meylikh_1_name"}]}       
+CREATE_SEVERAL_CATEGORIES_JSON = {"items":[{"categorySystemid": "test_1_id","name": "test_1_name"}, {"categorySystemid": "test_2_id","name": "test_2_name"}, {"categorySystemid": "test_3_id","name": "test_3_name"}, {"categorySystemid": "test_4_id","name": "test_4_name"}, {"categorySystemid": "test_5_id","name": "test_5_name"}]}     
+CREATE_REPEAT_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_1_id","name": "meylikh_1_name"}]} 
+CREATE_VALIDATE_CATEGORY_AND_REPEAT_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_2_id","name": "meylikh_2_name"}, {"categorySystemid": "meylikh_1_id","name": "meylikh_1_name"}]}
+CREATE_VALIDATE_CATEGORY_AND_REPEAT_HIMSELF_CATEGORY_JSON = {"items":[{"categorySystemid": "meylikh_3_id","name": "meylikh_3_name"}, {"categorySystemid": "meylikh_3_id","name": "meylikh_3_name"}]}
 # CREATE_NOT_REQUIRED_JSON = {"items":[{"categorySystemid": "meylikh_nr"}]}
-CREATE_NOT_VALID_JSON = '{"items":[{"categorySystemid": "meylikh_1","name": "meylikh_1",}]}'
+CREATE_NOT_VALID_JSON = '{"items":[{"categorySystemid": "meylikh_1_id","name": "meylikh_1_name",}]}'
 CREATE_CATEGORY_WITHOUT_CATEGORY_SYSTEM_ID_JSON = {"items":[{"name": "meylikh_without_categorySystemid"}]}    
 CREATE_CATEGORY_WITHOUT_NAME_JSON = {"items":[{"categorySystemid": "meylikh_without_name"}]}
 
 # JSON'ы для работы с категориями (Создание подкатегории)
-CREATE_ONE_SUBCATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_1","name": "submeylikh_1", "parentSystemId": "meylikh_1"}]} 
-CREATE_REPEAT_ONE_SUBCATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_1","name": "submeylikh_1", "parentSystemId": "meylikh_1"}]}
+CREATE_ONE_SUBCATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_1_id","name": "submeylikh_1_name", "parentSystemId": "meylikh_1_id"}]} 
+CREATE_REPEAT_ONE_SUBCATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_1_id","name": "submeylikh_1_name", "parentSystemId": "meylikh_1_id"}]}
 
 # JSON'ы для работы с категориями (Обновление)
-UPDATE_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_1","name": "submeylikh_1"}]}      
-UPDATE_SEVERAL_CATEGORIES_JSON = {"items":[{"categorySystemid": "test_3","name": "test_6"}, {"categorySystemid": "test_4","name": "test_7"}]}   
-UPDATE_SEVERAL_CATEGORIES_ONE_NOT_ISSET_JSON = {"items":[{"categorySystemid": "test_6","name": "test_3"}, {"categorySystemid": "test_7","name": "test_4"}, {"categorySystemid": "test_8","name": "test_6"}]}  
-UPDATE_NOT_REQUIRED_JSON = {"items":[{"categorySystemId": "submeylikh_1"}]} # Отсутствует хотя бы один обязательный параметр   
-UPDATE_ONE_NOT_ISSET_CATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_2","name": "submeylikh_1"}]}   
-UPDATE_NOT_VALID_JSON = '{"items":[{"categorySystemid": "submeylikh_1","name": "submeylikh_1",}]}'
-UPDATE_CATEGORY_WITHOUT_CATEGORY_SYSTEM_ID_JSON = {"items":[{"name": "meylikh_1",}]} 
+UPDATE_ONE_CATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_1_id","name": "submeylikh_2_name"}]}      
+UPDATE_SEVERAL_CATEGORIES_JSON = {"items":[{"categorySystemid": "test_4_id","name": "test_4_name_update"}, {"categorySystemid": "test_5_id","name": "test_5__name_update"}]}   
+UPDATE_SEVERAL_CATEGORIES_ONE_NOT_ISSET_JSON = {"items":[{"categorySystemid": "test_4_id","name": "test_4_name_update_2"}, {"categorySystemid": "test_5_id","name": "test_5_name_update_2"}, {"categorySystemid": "test_8_id","name": "test_6_name_update_2"}]}  
+UPDATE_NOT_REQUIRED_JSON = {"items":[{"categorySystemId": "submeylikh_1_id"}]} # Отсутствует хотя бы один обязательный параметр   
+UPDATE_ONE_NOT_ISSET_CATEGORY_JSON = {"items":[{"categorySystemid": "submeylikh_2_id","name": "submeylikh_1_name_update_2"}]}   
+UPDATE_NOT_VALID_JSON = '{"items":[{"categorySystemid": "submeylikh_1_id","name": "submeylikh_1_name_update_3",}]}'
+UPDATE_CATEGORY_WITHOUT_CATEGORY_SYSTEM_ID_JSON = {"items":[{"name": "meylikh_1_name_update_4",}]} 
 
 # JSON'ы для работы с категориями (Удаление)
-DELETE_ONE_CATEGORY_JSON = {"items": [{"categorySystemId": "test_1"}]}
-DELETE_SEVERAL_CATEGORIES_JSON = {"items": [{"categorySystemId": "test_2"}, {"categorySystemId": "test_3"}]}
-DELETE_ONE_NOT_ISSET_CATEGORY_JSON = {"items": [{"categorySystemId": "test_7"}]}
+DELETE_ONE_CATEGORY_JSON = {"items": [{"categorySystemId": "test_1_id"}]}
+DELETE_SEVERAL_CATEGORIES_JSON = {"items": [{"categorySystemId": "test_2_id"}, {"categorySystemId": "test_3_id"}]}
+DELETE_ONE_NOT_ISSET_CATEGORY_JSON = {"items": [{"categorySystemId": "test_7_id"}]}
 
 # JSON'ы для работы с товарами (создание)
-CREATE_ONE_PRODUCT_WITH_OPTIONAL_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1", "name": "Тестовый ноутбук 1", "sku": "TEST-SKU-1", "type": "product", "categorySystemId": "meylikh_1", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}]}
+CREATE_ONE_PRODUCT_WITH_OPTIONAL_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1", "name": "Тестовый ноутбук 1", "sku": "TEST-SKU-1", "type": "product", "categorySystemId": "meylikh_1_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}]}
 CREATE_ONE_PRODUCT_WITHOUT_OPTIONAL_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-2", "name": "Тестовый ноутбук 2", "sku": "TEST-SKU-2", "type": "product"}]}
+CREATE_SEVERAL_PRODUCTS_WITH_OPTIONAL_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-3", "name": "Тестовый ноутбук 3", "sku": "TEST-SKU-3", "type": "product", "categorySystemId": "meylikh_2_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}, 
+                                                        {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-4", "name": "Тестовый ноутбук 4", "sku": "TEST-SKU-4", "type": "product", "categorySystemId": "meylikh_2_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}, 
+                                                        {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-5", "name": "Тестовый ноутбук 5", "sku": "TEST-SKU-5", "type": "product", "categorySystemId": "meylikh_3_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}, 
+                                                        {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-6", "name": "Тестовый ноутбук 6", "sku": "TEST-SKU-6", "type": "product", "categorySystemId": "meylikh_3_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}]}
+CREATE_SEVERAL_PRODUCTS_WITHOUT_OPTIONAL_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-7", "name": "Тестовый ноутбук 7", "sku": "TEST-SKU-7", "type": "product"}, 
+                                                        {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-8", "name": "Тестовый ноутбук 8", "sku": "TEST-SKU-8", "type": "product"}, 
+                                                        {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-9", "name": "Тестовый ноутбук 9", "sku": "TEST-SKU-9", "type": "product"}, 
+                                                        {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-10", "name": "Тестовый ноутбук 10", "sku": "TEST-SKU-10", "type": "product"}]}
 CREATE_ONE_PRODUCT_WITHOUT_PRODUCT_SYSTEM_ID_JSON = {"items": [{"name": "Тестовый ноутбук 1", "sku": "TEST-SKU-1", "type": "product"}]}
 CREATE_ONE_PRODUCT_WITHOUT_NAME_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1", "sku": "TEST-SKU-1", "type": "product"}]}
 CREATE_ONE_PRODUCT_WITHOUT_SKU_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-2", "name": "Тестовый ноутбук 2", "type": "product"}]}
