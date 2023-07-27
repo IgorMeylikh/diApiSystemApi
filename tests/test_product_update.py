@@ -1,7 +1,7 @@
 import pytest 
 import requests
 from requests.auth import HTTPBasicAuth
-from configuration import SERVICE_URL, UPDATE_PRODUCTS_PAGE, INTERNAL_LOGIN, INTERNAL_PASSWORD, HEADERS, UPDATE_ONE_PRODUCT_WITH_OPTIONAL_JSON, UPDATE_ONE_PRODUCT_WITHOUT_OPTIONAL_JSON, EMPTY_JSON, UPDATE_ONE_PRODUCT_ONLY_NAME_JSON, UPDATE_ONE_PRODUCT_ONLY_SKU_JSON, UPDATE_ONE_PRODUCT_ONLY_TYPE_JSON, UPDATE_ONE_PRODUCT_ONLY_CATEGORY_SYSTEM_ID_JSON, UPDATE_ONE_PRODUCT_ONLY_PREVIEW_LINK_JSON
+from configuration import SERVICE_URL, UPDATE_PRODUCTS_PAGE, INTERNAL_LOGIN, INTERNAL_PASSWORD, HEADERS, UPDATE_ONE_PRODUCT_WITH_OPTIONAL_JSON, UPDATE_SEVERAL_PRODUCTS_JSON, UPDATE_ONE_PRODUCT_WITHOUT_OPTIONAL_JSON, EMPTY_JSON, UPDATE_ONE_PRODUCT_ONLY_NAME_JSON, UPDATE_ONE_PRODUCT_ONLY_SKU_JSON, UPDATE_ONE_PRODUCT_ONLY_TYPE_JSON, UPDATE_ONE_PRODUCT_ONLY_CATEGORY_SYSTEM_ID_JSON, UPDATE_ONE_PRODUCT_ONLY_PREVIEW_LINK_JSON, UPDATE_PRODUCT_NOT_VALID_JSON, UPDATE_PRODUCT_NOT_ISSET_PRODUCT_JSON
 from src.baseclasses.response import Response
 from src.pydantic_schemas.create_category_pydantic import CreateCategorySuccessResponse, CreateCategorySuccessItem, CreateCategorySuccessStatusCode
 
@@ -12,6 +12,14 @@ def test_update_product_with_optional_positive():
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('200')
+
+# Тест на обновление нескольких продуктов (Позитивный)
+@pytest.mark.run(order=50)
+def test_update_several_products_positive():
+    response = requests.post(url=SERVICE_URL + UPDATE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_SEVERAL_PRODUCTS_JSON)
+    test_object = Response(response)
+    test_object.assert_status_code(200)
+    test_object.assert_operation_code('200') 
 
 # Тест на обновление товара с передачей только name из необязательных
 @pytest.mark.run(order=50)
@@ -71,12 +79,21 @@ def test_update_product_with_empty_json_negative():
 
 # Тесты на обновление продукта когда JSON не валидный: лишняя запятая после ключа
 @pytest.mark.run(order=50)
-# @pytest.mark.skip('Maybe this test is not needed.')
-def test_update_not_valid_json_negative():
-    response = requests.post(url=SERVICE_URL + UPDATE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_NOT_VALID_JSON)
+def test_update_product_not_valid_json_negative():
+    response = requests.post(url=SERVICE_URL + UPDATE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_PRODUCT_NOT_VALID_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')          
+
+# Тесты на обновление несуществующего продукта
+@pytest.mark.run(order=50)
+def test_update_product_not_isset_product_negative():
+    response = requests.post(url=SERVICE_URL + UPDATE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_PRODUCT_NOT_ISSET_PRODUCT_JSON)
+    test_object = Response(response)
+    test_object.assert_status_code(200)
+    test_object.assert_operation_code('400')   
+
+# Тест на обновление нескольких продуктов, когда один из них не существует
 
 # Необходимо в тесты добавить сравнение эталонной и возвращаемой схем JSON
 # Для этого для каждого вида запроса, возвращающего свой ответ, написать класс Pydantic, который будет описывать схему ответа JSON

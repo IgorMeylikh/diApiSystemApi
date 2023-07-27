@@ -99,6 +99,8 @@ CREATE_ONE_SERVICE_WITH_JS_JSON = {"items": [{"productSystemId": "7781c7c7-4281-
 
 # JSON'ы для работы с товарами (обновление)
 UPDATE_ONE_PRODUCT_WITH_OPTIONAL_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1", "name": "Тестовый товар 1 update", "sku": "TEST-SKU-1-UPDATE", "type": "product", "categorySystemId": "meylikh_2_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}]}
+UPDATE_SEVERAL_PRODUCTS_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1", "name": "Тестовый товар 1 update several", "sku": "TEST-SKU-1-UPDATE-SEVERAL", "type": "work", "categorySystemId": "meylikh_2_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"},
+                                          {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-2", "name": "Тестовый товар 2 update several", "sku": "TEST-SKU--SEVERAL", "type": "work"}]}
 UPDATE_ONE_PRODUCT_ONLY_NAME_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1", "name": "Тестовый товар 1 only name"}]}
 UPDATE_ONE_PRODUCT_ONLY_SKU_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1", "sku": "TEST-SKU-1-ONLY-SKU"}]}
 UPDATE_ONE_PRODUCT_ONLY_TYPE_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1", "type": "service"}]}
@@ -106,3 +108,5 @@ UPDATE_ONE_PRODUCT_ONLY_CATEGORY_SYSTEM_ID_JSON = {"items": [{"productSystemId":
 UPDATE_ONE_PRODUCT_ONLY_PREVIEW_LINK_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}]}
 
 UPDATE_ONE_PRODUCT_WITHOUT_OPTIONAL_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1"}]}
+UPDATE_PRODUCT_NOT_VALID_JSON = '{"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg",}]}'
+UPDATE_PRODUCT_NOT_ISSET_PRODUCT_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-not-isset", "name": "Тестовый товар 1 update", "sku": "TEST-SKU-1-UPDATE", "type": "product", "categorySystemId": "meylikh_2_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}]}
