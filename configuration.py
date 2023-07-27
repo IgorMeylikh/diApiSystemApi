@@ -98,4 +98,11 @@ CREATE_SEVERAL_PRODUCTS_WITH_REPEAT_SKU_WITH_OPTIONAL_JSON =  {"items": [{"produ
 CREATE_ONE_SERVICE_WITH_JS_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-JS", "name": "Тестовый сервис JS", "sku": "TEST-SKU-JS", "type": "service", "categorySystemId": "meylikh_3_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg\" onclick=\"alert('Клик!')\""}]}
 
 # JSON'ы для работы с товарами (обновление)
-UPDATE_ONE_PRODUCT_WITH_OPTIONAL_JSON = {}
+UPDATE_ONE_PRODUCT_WITH_OPTIONAL_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1", "name": "Тестовый товар 1 update", "sku": "TEST-SKU-1-UPDATE", "type": "product", "categorySystemId": "meylikh_2_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}]}
+UPDATE_ONE_PRODUCT_ONLY_NAME_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1", "name": "Тестовый товар 1 only name"}]}
+UPDATE_ONE_PRODUCT_ONLY_SKU_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1", "sku": "TEST-SKU-1-ONLY-SKU"}]}
+UPDATE_ONE_PRODUCT_ONLY_TYPE_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1", "type": "service"}]}
+UPDATE_ONE_PRODUCT_ONLY_CATEGORY_SYSTEM_ID_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1", "categorySystemId": "meylikh_1_id"}]}
+UPDATE_ONE_PRODUCT_ONLY_PREVIEW_LINK_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}]}
+
+UPDATE_ONE_PRODUCT_WITHOUT_OPTIONAL_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1"}]}

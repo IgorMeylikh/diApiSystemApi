@@ -23,7 +23,7 @@ class Response:
         return self
     
     def assert_operation_code(self, operation_code):
-        assert operation_code in self.response_json['responses'].keys(), self
+        assert operation_code in self.response_json['responses'].keys(), "Код " + operation_code + " отсутствует в ответе"
     
     def __str__(self):
         return \
