@@ -69,7 +69,14 @@ def test_update_product_with_empty_json_negative():
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')
 
-          
+# Тесты на обновление продукта когда JSON не валидный: лишняя запятая после ключа
+@pytest.mark.run(order=50)
+# @pytest.mark.skip('Maybe this test is not needed.')
+def test_update_not_valid_json_negative():
+    response = requests.post(url=SERVICE_URL + UPDATE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_NOT_VALID_JSON)
+    test_object = Response(response)
+    test_object.assert_status_code(200)
+    test_object.assert_operation_code('400')          
 
 # Необходимо в тесты добавить сравнение эталонной и возвращаемой схем JSON
 # Для этого для каждого вида запроса, возвращающего свой ответ, написать класс Pydantic, который будет описывать схему ответа JSON
