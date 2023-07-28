@@ -13,9 +13,9 @@ def test_update_product_with_optional_positive():
     test_object.assert_status_code(200)
     test_object.assert_operation_code('200')
 
-# Тест на обновление нескольких продуктов (Позитивный)
+# Тест на обновление нескольких продуктов
 @pytest.mark.run(order=50)
-def test_update_several_products_positive():
+def test_update_product_several_products_positive():
     response = requests.post(url=SERVICE_URL + UPDATE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_SEVERAL_PRODUCTS_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
