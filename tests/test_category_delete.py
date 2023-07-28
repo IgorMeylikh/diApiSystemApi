@@ -13,14 +13,6 @@ def test_delete_one_category_positive():
     test_object.assert_status_code(200)
     test_object.assert_operation_code('200')
 
-# Тест на удаление категории с передачей 1 валидного элемента
-@pytest.mark.run(order=30)
-def test_delete_one_not_isset_category_negative():
-    response = requests.post(url=SERVICE_URL + DELETE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=DELETE_ONE_NOT_ISSET_CATEGORY_JSON)
-    test_object = Response(response)
-    test_object.assert_status_code(200)
-    test_object.assert_operation_code('400')    
-
 # Тест на удаление нескольких категорий
 @pytest.mark.run(order=30)
 def test_delete_several_categories_positive():
@@ -28,6 +20,16 @@ def test_delete_several_categories_positive():
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('200')
+
+# Тест на удаление несуществующей категории с передачей 1 валидного элемента
+@pytest.mark.run(order=30)
+def test_delete_one_not_isset_category_negative():
+    response = requests.post(url=SERVICE_URL + DELETE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=DELETE_ONE_NOT_ISSET_CATEGORY_JSON)
+    test_object = Response(response)
+    test_object.assert_status_code(200)
+    test_object.assert_operation_code('400')
+
+# Нужен тест на удаление нескольких категорий, одна из них не существующая
 
 # Тест на отправку пустого содержимого JSON'a
 @pytest.mark.run(order=30)  
