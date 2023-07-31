@@ -55,7 +55,7 @@ def test_create_product_work_with_optional_positive():
 
 # Тест на создание товара с передачей 1 валидного элемента с указанием несуществующей категории
 @pytest.mark.run(order=40)
-def test_create_product_in_not_isset_category_id_positive():
+def test_create_product_in_not_isset_category_id_negative():
     response = requests.post(url=SERVICE_URL + CREATE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=CREATE_ONE_PRODUCT_IN_NOT_ISSET_CATEGORY_SYSTEM_ID_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
