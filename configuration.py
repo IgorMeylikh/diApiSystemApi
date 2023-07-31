@@ -117,3 +117,7 @@ DELETE_ONE_PRODUCT_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6
 DELETE_SEVERAL_PRODUCTS_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-10"}, {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-17"}]}
 DELETE_ONE_NOT_ISSET_PRODUCT_JSON = {"items": [{"productSystemId": "not-isset-product-guid"}]}
 DELETE_SEVERAL_PRODUCTS_ONE_PRODUCT_NOT_ISSET_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-7"}, {"productSystemId": "not-isset-product-guid-for-several"}]}
+
+# JSON'ы для получения всех товаров
+GET_ALL_PRODUCTS = {"items": [{"companyId": "meylikh"}]}
+
