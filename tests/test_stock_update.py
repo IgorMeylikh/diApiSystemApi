@@ -1,99 +1,129 @@
 import pytest 
 import requests
 from requests.auth import HTTPBasicAuth
-from configuration import SERVICE_URL, UPDATE_PRODUCTS_PAGE, INTERNAL_LOGIN, INTERNAL_PASSWORD, HEADERS, UPDATE_ONE_PRODUCT_WITH_OPTIONAL_JSON, UPDATE_SEVERAL_PRODUCTS_JSON, UPDATE_ONE_PRODUCT_WITHOUT_OPTIONAL_JSON, EMPTY_JSON, UPDATE_ONE_PRODUCT_ONLY_NAME_JSON, UPDATE_ONE_PRODUCT_ONLY_SKU_JSON, UPDATE_ONE_PRODUCT_ONLY_TYPE_JSON, UPDATE_ONE_PRODUCT_ONLY_CATEGORY_SYSTEM_ID_JSON, UPDATE_ONE_PRODUCT_ONLY_PREVIEW_LINK_JSON, UPDATE_PRODUCT_NOT_VALID_JSON, UPDATE_PRODUCT_NOT_ISSET_PRODUCT_JSON
+from configuration import SERVICE_URL, UPDATE_STOCKS_PAGE, INTERNAL_LOGIN, INTERNAL_PASSWORD, HEADERS, EMPTY_JSON, UPDATE_STOCK_ONE_JSON, UPDATE_STOCK_SEVERAL_STOCKS_JSON, UPDATE_STOCK_SEVERAL_STOCKS_DIFFERENT_WAREHOUSES_JSON, UPDATE_STOCK_ONE_NOT_ISSET_JSON, UPDATE_STOCK_SEVERAL_STOCKS_ONE_NOT_ISSET_JSON, UPDATE_STOCK_ONE_WITHOUT_QUANTITY_JSON, UPDATE_STOCK_ONE_WITHOUT_WAREHOUSE_JSON, UPDATE_STOCK_ONE_WITHOUT_PRODUCT_SYSTEM_ID_JSON, UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_QUANTITY_JSON, UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_WAREHOUSE_JSON, UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_PRODUCT_SYSTEM_ID_JSON, UPDATE_STOCK_WITH_NOT_ISSET_WAREHOUSE_JSON, UPDATE_STOCK_WITH_QUANTITY_NOT_DIGIT_JSON, UPDATE_STOCK_WITH_QUANTITY_FRACTIONAL_JSON
 from src.baseclasses.response import Response
 from src.pydantic_schemas.create_category_pydantic import CreateCategorySuccessResponse, CreateCategorySuccessItem, CreateCategorySuccessStatusCode
 
-# Тест на обновление товара с передачей 1 валидного элемента с указанием необязательных ключей
+# Тест на обновление остатка с передачей 1 валидного элемента 
 @pytest.mark.run(order=80)
-def test_update_product_with_optional_positive():
-    response = requests.post(url=SERVICE_URL + UPDATE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_ONE_PRODUCT_WITH_OPTIONAL_JSON)
+def test_update_stock_positive():
+    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_ONE_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('200')
 
-# Тест на обновление нескольких продуктов
+# Тест на обновление нескольких остатков
 @pytest.mark.run(order=80)
-def test_update_product_several_products_positive():
-    response = requests.post(url=SERVICE_URL + UPDATE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_SEVERAL_PRODUCTS_JSON)
-    test_object = Response(response)
-    test_object.assert_status_code(200)
-    test_object.assert_operation_code('200') 
-
-# Тест на обновление товара с передачей только name из необязательных
-@pytest.mark.run(order=80)
-def test_update_product_with_only_name_positive():
-    response = requests.post(url=SERVICE_URL + UPDATE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_ONE_PRODUCT_ONLY_NAME_JSON)
+def test_update_stock_several_positive():
+    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_SEVERAL_STOCKS_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('200')
 
-# Тест на обновление товара с передачей только sku из необязательных
+# Тест на обновление нескольких остатков с различными складами
 @pytest.mark.run(order=80)
-def test_update_product_with_only_sku_positive():
-    response = requests.post(url=SERVICE_URL + UPDATE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_ONE_PRODUCT_ONLY_SKU_JSON)
+def test_update_stock_several_different_warehouses_positive():
+    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_SEVERAL_STOCKS_DIFFERENT_WAREHOUSES_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('200')
 
-# Тест на обновление товара с передачей только type из необязательных
+# Тест на обновление остатка с передачей 1 невалидного элемента (такого GUID товара не существует)
 @pytest.mark.run(order=80)
-def test_update_product_with_only_type_positive():
-    response = requests.post(url=SERVICE_URL + UPDATE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_ONE_PRODUCT_ONLY_TYPE_JSON)
-    test_object = Response(response)
-    test_object.assert_status_code(200)
-    test_object.assert_operation_code('200')
-
-# Тест на обновление товара с передачей только categorySystemId из необязательных
-@pytest.mark.run(order=80)
-def test_update_product_with_only_category_system_id_positive():
-    response = requests.post(url=SERVICE_URL + UPDATE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_ONE_PRODUCT_ONLY_CATEGORY_SYSTEM_ID_JSON)
-    test_object = Response(response)
-    test_object.assert_status_code(200)
-    test_object.assert_operation_code('200')
-
-# Тест на обновление товара с передачей только categorySystemId из необязательных
-@pytest.mark.run(order=80)
-def test_update_product_with_only_preview_link_positive():
-    response = requests.post(url=SERVICE_URL + UPDATE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_ONE_PRODUCT_ONLY_PREVIEW_LINK_JSON)
-    test_object = Response(response)
-    test_object.assert_status_code(200)
-    test_object.assert_operation_code('200')
-    
-# Тест на обновление товара с передачей 1 валидного элемента без указания хотя бы одного необязательного параметра
-@pytest.mark.run(order=80)
-def test_update_product_without_optional_negative():
-    response = requests.post(url=SERVICE_URL + UPDATE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_ONE_PRODUCT_WITHOUT_OPTIONAL_JSON)
-    test_object = Response(response)
-    test_object.assert_status_code(200)
-    test_object.assert_operation_code('400')  
-
-# Тест на обновление товара с передачей пустого JSON
-@pytest.mark.run(order=80)
-def test_update_product_with_empty_json_negative():
-    response = requests.post(url=SERVICE_URL + UPDATE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=EMPTY_JSON)
+def test_update_stock_not_isset_product_system_id_negative():
+    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_ONE_NOT_ISSET_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')
 
-# Тесты на обновление продукта когда JSON не валидный: лишняя запятая после ключа
+# Тест на обновление нескольких остатков когда один из товаров (productSystemId) не существует 
 @pytest.mark.run(order=80)
-def test_update_product_not_valid_json_negative():
-    response = requests.post(url=SERVICE_URL + UPDATE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_PRODUCT_NOT_VALID_JSON)
+def test_update_stock_several_one_not_isset_product_system_id_negative():
+    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_SEVERAL_STOCKS_ONE_NOT_ISSET_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
-    test_object.assert_operation_code('400')          
+    test_object.assert_operation_code('400')
 
-# Тесты на обновление несуществующего продукта
+# Тест на обновление остатка без передачи обязательного количества (quantity)
 @pytest.mark.run(order=80)
-def test_update_product_not_isset_product_negative():
-    response = requests.post(url=SERVICE_URL + UPDATE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_PRODUCT_NOT_ISSET_PRODUCT_JSON)
+def test_update_stock_without_quantity_negative():
+    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_ONE_WITHOUT_QUANTITY_JSON)
+    test_object = Response(response)
+    test_object.assert_status_code(200)
+    test_object.assert_operation_code('400')
+
+# Тест на обновление остатка без передачи обязательного id склада (warehouseId)
+@pytest.mark.run(order=80)
+def test_update_stock_without_warehouse_negative():
+    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_ONE_WITHOUT_WAREHOUSE_JSON)
+    test_object = Response(response)
+    test_object.assert_status_code(200)
+    test_object.assert_operation_code('400')
+
+# Тест на обновление остатка без передачи обязательного productSystemId
+@pytest.mark.run(order=80)
+def test_update_stock_without_product_system_id_negative():
+    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_ONE_WITHOUT_PRODUCT_SYSTEM_ID_JSON)
+    test_object = Response(response)
+    test_object.assert_status_code(200)
+    test_object.assert_operation_code('400')
+
+# Тест на обновление нескольких остатков без передачи у одного и них обязательного количества (quantity)
+@pytest.mark.run(order=80)
+def test_update_stock_several_without_quantity_negative():
+    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_QUANTITY_JSON)
+    test_object = Response(response)
+    test_object.assert_status_code(200)
+    test_object.assert_operation_code('400')
+
+# Тест на обновление нескольких остатков без передачи у одного и них обязательного id склада (warehouseId)
+@pytest.mark.run(order=80)
+def test_update_stock_several_without_warehouse_negative():
+    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_WAREHOUSE_JSON)
+    test_object = Response(response)
+    test_object.assert_status_code(200)
+    test_object.assert_operation_code('400')
+
+# Тест на обновление нескольких остатков без передачи у одного и них обязательного productSystemId
+@pytest.mark.run(order=80)
+def test_update_stock_several_without_product_system_id_negative():
+    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_PRODUCT_SYSTEM_ID_JSON)
+    test_object = Response(response)
+    test_object.assert_status_code(200)
+    test_object.assert_operation_code('400')
+
+# Тест на обновление остаткв с передачей пустого JSON
+@pytest.mark.run(order=80)
+def test_update_stock_with_empty_json_negative():
+    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=EMPTY_JSON)
+    test_object = Response(response)
+    test_object.assert_status_code(200)
+    test_object.assert_operation_code('400')
+
+# Тест на обновление остатка когда передан несуществующий склад (warehouseId)
+@pytest.mark.run(order=80)
+def test_update_stock_with_not_isset_warehouse_negative():
+    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_WITH_NOT_ISSET_WAREHOUSE_JSON)
+    test_object = Response(response)
+    test_object.assert_status_code(200)
+    test_object.assert_operation_code('400')
+
+# Тест на обновление остатка когда передана буква в количестве товара (quantity)
+@pytest.mark.run(order=80)
+def test_update_stock_with_not_isset_warehouse_negative():
+    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_WITH_QUANTITY_NOT_DIGIT_JSON)
+    test_object = Response(response)
+    test_object.assert_status_code(200)
+    test_object.assert_operation_code('400')    
+
+# Тест на обновление остатка когда передано дробное число в количестве товара (quantity)
+@pytest.mark.run(order=80)
+def test_update_stock_with_not_isset_warehouse_negative():
+    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_WITH_QUANTITY_FRACTIONAL_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')   
-
-# Тест на обновление нескольких продуктов, когда один из них не существует
 
 # Необходимо в тесты добавить сравнение эталонной и возвращаемой схем JSON
 # Для этого для каждого вида запроса, возвращающего свой ответ, написать класс Pydantic, который будет описывать схему ответа JSON

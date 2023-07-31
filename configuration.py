@@ -123,9 +123,9 @@ GET_ALL_PRODUCTS = {"items": [{"companyId": "meylikh"}]}
 
 # JSON'ы для обновления остатков
 UPDATE_STOCK_ONE_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-8","warehouseId": "test_wh_1","quantity": 5}]}
-UPDATE_STOCK_ONE_DIFFERENT_WAREHOUSES_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-8","warehouseId": "test_wh_1","quantity": 5}, {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-8","warehouseId": "test_wh_2","quantity": 3}]}
 UPDATE_STOCK_SEVERAL_STOCKS_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-9","warehouseId": "test_wh_1","quantity": 7}, {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-3","warehouseId": "test_wh_1","quantity": 2}]}
 UPDATE_STOCK_SEVERAL_STOCKS_DIFFERENT_WAREHOUSES_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-4","warehouseId": "test_wh_1","quantity": 7}, {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-19","warehouseId": "test_wh_2","quantity": 13}]}
+UPDATE_STOCK_ONE_NOT_ISSET_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-not-isset-stock","warehouseId": "test_wh_1","quantity": 5}]}
 UPDATE_STOCK_SEVERAL_STOCKS_ONE_NOT_ISSET_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-1","warehouseId": "test_wh_1","quantity": 11}, {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-not-isset","warehouseId": "test_wh_1","quantity": 13}]}
 UPDATE_STOCK_ONE_WITHOUT_QUANTITY_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-8","warehouseId": "test_wh_1"}]}
 UPDATE_STOCK_ONE_WITHOUT_WAREHOUSE_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-8","quantity": 5}]}
@@ -133,3 +133,6 @@ UPDATE_STOCK_ONE_WITHOUT_PRODUCT_SYSTEM_ID_JSON = {"items": [{"quantity": 5,"war
 UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_QUANTITY_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-9","warehouseId": "test_wh_1","quantity": 7}, {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-3","warehouseId": "test_wh_1"}]}
 UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_WAREHOUSE_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-9","warehouseId": "test_wh_1","quantity": 7}, {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-3","quantity": 3}]}
 UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_PRODUCT_SYSTEM_ID_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-9","warehouseId": "test_wh_1","quantity": 7}, {"warehouseId": "test_wh_1","quantity": 3}]}
+UPDATE_STOCK_WITH_NOT_ISSET_WAREHOUSE_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-8","warehouseId": "test_wh_not_isset","quantity": 5}]}
+UPDATE_STOCK_WITH_QUANTITY_NOT_DIGIT_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-8","warehouseId": "test_wh_1","quantity": "abc"}]}
+UPDATE_STOCK_WITH_QUANTITY_FRACTIONAL_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-8","warehouseId": "test_wh_1","quantity": 0.1}]}
