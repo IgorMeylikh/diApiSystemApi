@@ -1,7 +1,7 @@
 import pytest 
 import requests
 from requests.auth import HTTPBasicAuth
-from configuration import SERVICE_URL, UPDATE_STOCKS_PAGE, INTERNAL_LOGIN, INTERNAL_PASSWORD, HEADERS, EMPTY_JSON, UPDATE_STOCK_ONE_JSON, UPDATE_STOCK_SEVERAL_STOCKS_JSON, UPDATE_STOCK_SEVERAL_STOCKS_DIFFERENT_WAREHOUSES_JSON, UPDATE_STOCK_ONE_NOT_ISSET_JSON, UPDATE_STOCK_SEVERAL_STOCKS_ONE_NOT_ISSET_JSON, UPDATE_STOCK_ONE_WITHOUT_QUANTITY_JSON, UPDATE_STOCK_ONE_WITHOUT_WAREHOUSE_JSON, UPDATE_STOCK_ONE_WITHOUT_PRODUCT_SYSTEM_ID_JSON, UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_QUANTITY_JSON, UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_WAREHOUSE_JSON, UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_PRODUCT_SYSTEM_ID_JSON, UPDATE_STOCK_WITH_NOT_ISSET_WAREHOUSE_JSON, UPDATE_STOCK_WITH_QUANTITY_NOT_DIGIT_JSON, UPDATE_STOCK_WITH_QUANTITY_FRACTIONAL_JSON
+from configuration import SERVICE_URL, UPDATE_STOCKS_PAGE, INTERNAL_LOGIN, INTERNAL_PASSWORD, HEADERS, EMPTY_JSON, UPDATE_STOCK_ONE_JSON, UPDATE_STOCK_SEVERAL_STOCKS_JSON, UPDATE_STOCK_SEVERAL_STOCKS_DIFFERENT_WAREHOUSES_JSON, UPDATE_STOCK_ONE_NOT_ISSET_PRODUCT_SYSTEM_ID_JSON, UPDATE_STOCK_SEVERAL_STOCKS_ONE_NOT_ISSET_PRODUCT_SYSTEM_ID_JSON, UPDATE_STOCK_ONE_WITHOUT_QUANTITY_JSON, UPDATE_STOCK_ONE_WITHOUT_WAREHOUSE_JSON, UPDATE_STOCK_ONE_WITHOUT_PRODUCT_SYSTEM_ID_JSON, UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_QUANTITY_JSON, UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_WAREHOUSE_JSON, UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_PRODUCT_SYSTEM_ID_JSON, UPDATE_STOCK_WITH_NOT_ISSET_WAREHOUSE_JSON, UPDATE_STOCK_WITH_QUANTITY_NOT_DIGIT_JSON, UPDATE_STOCK_WITH_QUANTITY_FRACTIONAL_JSON
 from src.baseclasses.response import Response
 from src.pydantic_schemas.create_category_pydantic import CreateCategorySuccessResponse, CreateCategorySuccessItem, CreateCategorySuccessStatusCode
 
@@ -32,7 +32,7 @@ def test_update_stock_several_different_warehouses_positive():
 # Тест на обновление остатка с передачей 1 невалидного элемента (такого GUID товара не существует)
 @pytest.mark.run(order=80)
 def test_update_stock_not_isset_product_system_id_negative():
-    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_ONE_NOT_ISSET_JSON)
+    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_ONE_NOT_ISSET_PRODUCT_SYSTEM_ID_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')
@@ -40,7 +40,7 @@ def test_update_stock_not_isset_product_system_id_negative():
 # Тест на обновление нескольких остатков когда один из товаров (productSystemId) не существует 
 @pytest.mark.run(order=80)
 def test_update_stock_several_one_not_isset_product_system_id_negative():
-    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_SEVERAL_STOCKS_ONE_NOT_ISSET_JSON)
+    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_SEVERAL_STOCKS_ONE_NOT_ISSET_PRODUCT_SYSTEM_ID_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')
@@ -124,6 +124,8 @@ def test_update_stock_with_not_isset_warehouse_negative():
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')   
+
+# Тест на обновление количества у товара, который принадлежит другой учётной системе
 
 # Необходимо в тесты добавить сравнение эталонной и возвращаемой схем JSON
 # Для этого для каждого вида запроса, возвращающего свой ответ, написать класс Pydantic, который будет описывать схему ответа JSON
