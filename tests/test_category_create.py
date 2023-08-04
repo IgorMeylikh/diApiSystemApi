@@ -89,6 +89,29 @@ def test_create_category_without_category_system_id_json_negative():
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')    
 
+# Возможно стоит написать тесты так, чтобы при формировании JSON'а на отправку туда передавались переменные, сравнение с которыми будет происходить при получении
+# ответа от сервера. То есть будет сравниваться не только схема, но и конкретно какое значение вернулось в параметре. То есть передано было название переменной
+# и при ответе в теле значение по данному ключу должно совпадать с переменной
+# Создаём категорию, передаём JSON вида {"items":[{"categorySystemid": "meylikh_1_id","name": "meylikh_1_name"}]} , но вот эти categorySystemid и name должны быть переданы
+# как переменные categorySystemidForCreate = "meylikh_1_id", nameForCreate = "meylikh_1_name" и в ответе надо смотреть, что содержимое по ключу categorySystemId равно содержимому
+# переменной categorySystemidForCreate, а по ключу name переменной nameForCreate
+# Это всё должно быть в тесте. Возможно поместить в метод класса, который проверяет возвращаемый ответ.
+# {
+# 	"responses": {
+# 		"201": [
+# 			{
+# 				"description": "Created items.",
+# 				"items": [
+# 					{
+# 						"categoryId": "5c5fa411-8321-4d15-b5d5-a92000979c32",
+# 						"categorySystemId": "meylikh_1_id",
+# 						"name": "meylikh_1_name"
+# 					}
+# 				]
+# 			}
+# 		]
+# 	}
+# }
 # Необходимо в тесты добавить сравнение эталонной и возвращаемой схем JSON
 # Для этого для каждого вида запроса, возвращающего свой ответ, написать класс Pydantic, который будет описывать схему ответа JSON
 # По типу как это сделано у теста создания категории класс CreateCategorySuccessResponse
