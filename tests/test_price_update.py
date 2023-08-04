@@ -36,7 +36,7 @@ def test_update_price_with_price_as_string_positive():
     response = requests.post(url=SERVICE_URL + UPDATE_PRICES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_WITH_PRICE_AS_STRING_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
-    test_object.assert_operation_code('400')     
+    test_object.assert_operation_code('200')     
 
 # Тест на обновление цены с передачей 1 невалидного элемента (такого GUID товара не существует)
 @pytest.mark.run(order=90)

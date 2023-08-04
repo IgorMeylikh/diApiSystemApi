@@ -83,6 +83,7 @@ def test_update_stock_several_without_quantity_negative():
     response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_QUANTITY_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
+    test_object.assert_operation_code('200')
     test_object.assert_operation_code('400')
 
 # Тест на обновление нескольких остатков без передачи у одного и них обязательного id склада (warehouseId)
