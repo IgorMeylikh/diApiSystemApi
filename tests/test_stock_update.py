@@ -1,7 +1,7 @@
 import pytest 
 import requests
 from requests.auth import HTTPBasicAuth
-from configuration import SERVICE_URL, UPDATE_STOCKS_PAGE, INTERNAL_LOGIN, INTERNAL_PASSWORD, HEADERS, EMPTY_JSON, UPDATE_STOCK_ONE_JSON, UPDATE_STOCK_SEVERAL_STOCKS_JSON, UPDATE_STOCK_SEVERAL_STOCKS_DIFFERENT_WAREHOUSES_JSON, UPDATE_STOCK_ONE_NOT_ISSET_PRODUCT_SYSTEM_ID_JSON, UPDATE_STOCK_SEVERAL_STOCKS_ONE_NOT_ISSET_PRODUCT_SYSTEM_ID_JSON, UPDATE_STOCK_ONE_WITHOUT_QUANTITY_JSON, UPDATE_STOCK_ONE_WITHOUT_WAREHOUSE_JSON, UPDATE_STOCK_ONE_WITHOUT_PRODUCT_SYSTEM_ID_JSON, UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_QUANTITY_JSON, UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_WAREHOUSE_JSON, UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_PRODUCT_SYSTEM_ID_JSON, UPDATE_STOCK_WITH_NOT_ISSET_WAREHOUSE_JSON, UPDATE_STOCK_WITH_QUANTITY_NOT_DIGIT_JSON, UPDATE_STOCK_WITH_QUANTITY_FRACTIONAL_JSON
+from configuration import SERVICE_URL, UPDATE_STOCKS_PAGE, INTERNAL_LOGIN, INTERNAL_PASSWORD, HEADERS, EMPTY_JSON, UPDATE_STOCK_ONE_JSON, UPDATE_STOCK_SEVERAL_STOCKS_JSON, UPDATE_STOCK_WITH_QUANTITY_AS_STRING_JSON, UPDATE_STOCK_SEVERAL_STOCKS_DIFFERENT_WAREHOUSES_JSON, UPDATE_STOCK_ONE_NOT_ISSET_PRODUCT_SYSTEM_ID_JSON, UPDATE_STOCK_SEVERAL_STOCKS_ONE_NOT_ISSET_PRODUCT_SYSTEM_ID_JSON, UPDATE_STOCK_ONE_WITHOUT_QUANTITY_JSON, UPDATE_STOCK_ONE_WITHOUT_WAREHOUSE_JSON, UPDATE_STOCK_ONE_WITHOUT_PRODUCT_SYSTEM_ID_JSON, UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_QUANTITY_JSON, UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_WAREHOUSE_JSON, UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_PRODUCT_SYSTEM_ID_JSON, UPDATE_STOCK_WITH_NOT_ISSET_WAREHOUSE_JSON, UPDATE_STOCK_WITH_QUANTITY_NOT_DIGIT_JSON, UPDATE_STOCK_WITH_QUANTITY_FRACTIONAL_JSON
 from src.baseclasses.response import Response
 from src.pydantic_schemas.create_category_pydantic import CreateCategorySuccessResponse, CreateCategorySuccessItem, CreateCategorySuccessStatusCode
 
@@ -20,6 +20,14 @@ def test_update_stock_several_positive():
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('200')
+
+# Тест на обновление остатков когда передано количество как строка, но содержащая число. "1000"
+@pytest.mark.run(order=90)
+def test_update_stock_with_quantity_as_string_positive():
+    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_WITH_QUANTITY_AS_STRING_JSON)
+    test_object = Response(response)
+    test_object.assert_status_code(200)
+    test_object.assert_operation_code('200')      
 
 # Тест на обновление нескольких остатков с различными складами
 @pytest.mark.run(order=80)
@@ -111,7 +119,7 @@ def test_update_stock_with_not_isset_warehouse_negative():
 
 # Тест на обновление остатка когда передана буква в количестве товара (quantity)
 @pytest.mark.run(order=80)
-def test_update_stock_with_not_isset_warehouse_negative():
+def test_update_stock_with_quantity_not_digit_negative():
     response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_WITH_QUANTITY_NOT_DIGIT_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
@@ -124,6 +132,11 @@ def test_update_stock_with_not_isset_warehouse_negative():
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')   
+
+# Может нужен тест(-ы) когда количество передаётся как дробное? Через запятую или точку. Это ж всё негативные тесты будут. Количество целое число должно быть 
+# Также могут передать как .5, 1. , ,5 , 1,
+
+# Может нужны тесты когда в качестве количества число может передаться как спецсимвол?
 
 # Тест на обновление количества у товара, который принадлежит другой учётной системе
 
