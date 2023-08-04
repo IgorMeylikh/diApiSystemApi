@@ -140,6 +140,7 @@ UPDATE_STOCK_WITH_QUANTITY_FRACTIONAL_JSON = {"items": [{"productSystemId": "778
 
 # JSON'ы для обновления цен
 UPDATE_PRICE_ONE_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-8","price": 1000}]}
+UPDATE_PRICE_WITH_PRICE_AS_FRACTIONAL_NUMBER_DOT_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-8","price": 1000.1}]}
 UPDATE_PRICE_SEVERAL_PRICES_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-8","price": 2000}, {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-9","price": 3000}]}
 UPDATE_STOCK_WITH_PRICE_AS_STRING_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-8","price": "1000"}]}
 UPDATE_PRICE_ONE_NOT_ISSET_PRODUCT_SYSTEM_ID_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-not-isset-price","price": 1000}]}
@@ -147,3 +148,4 @@ UPDATE_PRICE_SEVERAL_PRICES_ONE_NOT_ISSET_JSON = {"items": [{"productSystemId": 
 UPDATE_PRICE_WITHOUT_PRODUCT_SYSTEM_ID_JSON = {"items": [{"price": 1000}]}
 UPDATE_PRICE_WITHOUT_PRICE_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-16"}]}
 UPDATE_PRICE_WITH_PRICE_AS_LETTERS_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-16","price": "price"}]}
+UPDATE_PRICE_WITH_PRICE_AS_FRACTIONAL_NUMBER_COMMA_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-8","price": "1000,1"}]}
