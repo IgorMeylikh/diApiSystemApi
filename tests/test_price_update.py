@@ -95,8 +95,6 @@ def test_update_price_with_price_as_fractional_number_comma_negative():
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')    
 
-# Может нужен тест(-ы) когда цена передаётся как дробное? Через запятую или точку.  
-
 # Может нужны тесты когда в качестве цены число может передаться как спецсимвол?
 
 # Тест на обновление цены у товара, который принадлежит другой учётной системе
