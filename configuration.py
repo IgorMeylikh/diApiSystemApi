@@ -6,9 +6,11 @@ INTERNAL_LOGIN = 'system@di-house.ru'
 INTERNAL_PASSWORD = 'Password1!'
 INTERNAL_HEADERS = {'Content-type': 'application/json', 'Accept': 'text/plain', 'requestId': REQUETS_ID, 'senderSystem': INTERNAL_SENDER_SYSTEM}
 
+EXTERNAL_SENDER_SYSTEM = 'meylikh_test_consumer'
+
 EXTERNAL_LOGIN = 'consumer@di-house.ru'
 EXTERNAL_PASSWORD = 'Password1!'
-EXTERNAL_HEADERS = {'Content-type': 'application/json', 'Accept': 'text/plain', 'requestId': REQUETS_ID, 'senderSystem': INTERNAL_SENDER_SYSTEM}
+EXTERNAL_HEADERS = {'Content-type': 'application/json', 'Accept': 'text/plain', 'requestId': REQUETS_ID, 'senderSystem': EXTERNAL_SENDER_SYSTEM}
 
 
 CREATE_CATEGORIES_PAGE = 'internal/categories/create'               #Страница создания категории
@@ -121,7 +123,7 @@ DELETE_ONE_NOT_ISSET_PRODUCT_JSON = {"items": [{"productSystemId": "not-isset-pr
 DELETE_SEVERAL_PRODUCTS_ONE_PRODUCT_NOT_ISSET_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-7"}, {"productSystemId": "not-isset-product-guid-for-several"}]}
 
 # JSON'ы для получения всех товаров
-GET_ALL_PRODUCTS = {"items": [{"companyId": "meylikh"}]}
+GET_ALL_PRODUCTS = {"items": [{"companyId": "dihouse"}]}
 
 # JSON'ы для обновления остатков
 UPDATE_STOCK_ONE_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-8","warehouseId": "test_wh_1","quantity": 5}]}
