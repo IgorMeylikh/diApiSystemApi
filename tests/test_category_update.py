@@ -1,14 +1,14 @@
 import pytest 
 import requests
 from requests.auth import HTTPBasicAuth
-from configuration import SERVICE_URL, UPDATE_CATEGORIES_PAGE, INTERNAL_LOGIN, INTERNAL_PASSWORD, HEADERS, UPDATE_ONE_CATEGORY_JSON, UPDATE_SEVERAL_CATEGORIES_JSON, UPDATE_SEVERAL_CATEGORIES_ONE_NOT_ISSET_JSON, UPDATE_CATEGORY_ONE_NOT_ISSET_CATEGORY_JSON, UPDATE_CATEGORY_NOT_VALID_JSON, EMPTY_JSON, UPDATE_CATEGORY_WITHOUT_CATEGORY_SYSTEM_ID_JSON, UPDATE_CATEGORY_WITHOUT_OPTIONAL_JSON
+from configuration import SERVICE_URL, UPDATE_CATEGORIES_PAGE, INTERNAL_LOGIN, INTERNAL_PASSWORD, INTERNAL_HEADERS, UPDATE_ONE_CATEGORY_JSON, UPDATE_SEVERAL_CATEGORIES_JSON, UPDATE_SEVERAL_CATEGORIES_ONE_NOT_ISSET_JSON, UPDATE_CATEGORY_ONE_NOT_ISSET_CATEGORY_JSON, UPDATE_CATEGORY_NOT_VALID_JSON, EMPTY_JSON, UPDATE_CATEGORY_WITHOUT_CATEGORY_SYSTEM_ID_JSON, UPDATE_CATEGORY_WITHOUT_OPTIONAL_JSON
 from src.baseclasses.response import Response
 from src.pydantic_schemas.create_category_pydantic import CreateCategorySuccessResponse, CreateCategorySuccessItem, CreateCategorySuccessStatusCode
 
 #Тест на обновление категории с передачей 1 валидного элемента
 @pytest.mark.run(order=20)
 def test_update_category_positive():
-    response = requests.post(url=SERVICE_URL + UPDATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_ONE_CATEGORY_JSON)
+    response = requests.post(url=SERVICE_URL + UPDATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=INTERNAL_HEADERS, json=UPDATE_ONE_CATEGORY_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('200')
@@ -16,7 +16,7 @@ def test_update_category_positive():
 # Необходимо написать тест на обновление нескольких категорий
 @pytest.mark.run(order=20)
 def test_update_category_several_categories_positive():
-    response = requests.post(url=SERVICE_URL + UPDATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_SEVERAL_CATEGORIES_JSON)
+    response = requests.post(url=SERVICE_URL + UPDATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=INTERNAL_HEADERS, json=UPDATE_SEVERAL_CATEGORIES_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('200')
@@ -24,7 +24,7 @@ def test_update_category_several_categories_positive():
 # Необходимо написать тест на обновление нескольких категорий когда одна из категорий указана неправильно (несуществующий идентификатор)
 @pytest.mark.run(order=20)
 def test_update_category_several_categories_one_not_isset_negative():
-    response = requests.post(url=SERVICE_URL + UPDATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_SEVERAL_CATEGORIES_ONE_NOT_ISSET_JSON)
+    response = requests.post(url=SERVICE_URL + UPDATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=INTERNAL_HEADERS, json=UPDATE_SEVERAL_CATEGORIES_ONE_NOT_ISSET_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')
@@ -33,7 +33,7 @@ def test_update_category_several_categories_one_not_isset_negative():
 @pytest.mark.run(order=20)
 # @pytest.mark.skip('Maybe this test is not needed.')
 def test_update_category_not_valid_json_negative():
-    response = requests.post(url=SERVICE_URL + UPDATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_CATEGORY_NOT_VALID_JSON)
+    response = requests.post(url=SERVICE_URL + UPDATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=INTERNAL_HEADERS, json=UPDATE_CATEGORY_NOT_VALID_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')
@@ -42,7 +42,7 @@ def test_update_category_not_valid_json_negative():
 @pytest.mark.run(order=20)
 # @pytest.mark.skip('Operation code 400 is not isset.')
 def test_update_category_not_isset_category_negative():
-    response = requests.post(url=SERVICE_URL + UPDATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_CATEGORY_ONE_NOT_ISSET_CATEGORY_JSON)
+    response = requests.post(url=SERVICE_URL + UPDATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=INTERNAL_HEADERS, json=UPDATE_CATEGORY_ONE_NOT_ISSET_CATEGORY_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')
@@ -50,7 +50,7 @@ def test_update_category_not_isset_category_negative():
 # Тест на отправку пустого содержимого JSON'a
 @pytest.mark.run(order=20)  
 def test_update_category_without_items_negative():
-    response = requests.post(url=SERVICE_URL + UPDATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=EMPTY_JSON)
+    response = requests.post(url=SERVICE_URL + UPDATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=INTERNAL_HEADERS, json=EMPTY_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')
@@ -59,7 +59,7 @@ def test_update_category_without_items_negative():
 @pytest.mark.run(order=20)  
 # @pytest.mark.skip('Maybe this test is not needed.')
 def test_update_category_without_category_system_id_negative():
-    response = requests.post(url=SERVICE_URL + UPDATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_CATEGORY_WITHOUT_CATEGORY_SYSTEM_ID_JSON)
+    response = requests.post(url=SERVICE_URL + UPDATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=INTERNAL_HEADERS, json=UPDATE_CATEGORY_WITHOUT_CATEGORY_SYSTEM_ID_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')
@@ -67,7 +67,7 @@ def test_update_category_without_category_system_id_negative():
 # Тест отправки JSON'a без необязательных параметров. Какой смысл обновлять категорию, если ничего не передано для обновления?
 @pytest.mark.run(order=20)  
 def test_update_category_without_optional_negative():
-    response = requests.post(url=SERVICE_URL + UPDATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_CATEGORY_WITHOUT_OPTIONAL_JSON)
+    response = requests.post(url=SERVICE_URL + UPDATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=INTERNAL_HEADERS, json=UPDATE_CATEGORY_WITHOUT_OPTIONAL_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400') 
