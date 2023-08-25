@@ -1,14 +1,14 @@
 SERVICE_URL = 'http://esb:8052/'
 REQUETS_ID = '1'
-SENDER_SYSTEM = 'meylikh'
+INTERNAL_SENDER_SYSTEM = 'meylikh'
 
 INTERNAL_LOGIN = 'system@di-house.ru'
 INTERNAL_PASSWORD = 'Password1!'
-INTERNAL_HEADERS = {'Content-type': 'application/json', 'Accept': 'text/plain', 'requestId': REQUETS_ID, 'senderSystem': SENDER_SYSTEM}
+INTERNAL_HEADERS = {'Content-type': 'application/json', 'Accept': 'text/plain', 'requestId': REQUETS_ID, 'senderSystem': INTERNAL_SENDER_SYSTEM}
 
 EXTERNAL_LOGIN = 'consumer@di-house.ru'
 EXTERNAL_PASSWORD = 'Password1!'
-EXTERNAL_HEADERS = {'Content-type': 'application/json', 'Accept': 'text/plain', 'requestId': REQUETS_ID, 'senderSystem': SENDER_SYSTEM}
+EXTERNAL_HEADERS = {'Content-type': 'application/json', 'Accept': 'text/plain', 'requestId': REQUETS_ID, 'senderSystem': INTERNAL_SENDER_SYSTEM}
 
 
 CREATE_CATEGORIES_PAGE = 'internal/categories/create'               #Страница создания категории
