@@ -40,7 +40,7 @@ def test_update_stock_several_different_warehouses_positive():
 # Тест на обновление остатка с передачей 1 невалидного элемента (такого GUID товара не существует)
 @pytest.mark.run(order=80)
 def test_update_stock_not_isset_product_system_id_negative():
-    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=HEADERS, json=UPDATE_STOCK_ONE_NOT_ISSET_PRODUCT_SYSTEM_ID_JSON)
+    response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=INTERNAL_HEADERS, json=UPDATE_STOCK_ONE_NOT_ISSET_PRODUCT_SYSTEM_ID_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')
