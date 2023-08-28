@@ -27,7 +27,7 @@ def test_update_stock_with_quantity_as_string_positive():
     response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=INTERNAL_HEADERS, json=UPDATE_STOCK_WITH_QUANTITY_AS_STRING_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
-    test_object.assert_operation_code('200')      
+    test_object.assert_operation_code('400')      
 
 # Тест на обновление нескольких остатков с различными складами
 @pytest.mark.run(order=80)
@@ -134,10 +134,7 @@ def test_update_stock_with_not_isset_warehouse_negative():
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')   
 
-# Может нужен тест(-ы) когда количество передаётся как дробное? Через запятую или точку. Это ж всё негативные тесты будут. Количество целое число должно быть 
-# Также могут передать как .5, 1. , ,5 , 1,
-
-# Может нужны тесты когда в качестве количества число может передаться как спецсимвол?
+# Может нужны тесты когда в качестве количества число может передаться как спецсимвол? - не помню о чём это я.
 
 # Тест на обновление количества у товара, который принадлежит другой учётной системе
 
