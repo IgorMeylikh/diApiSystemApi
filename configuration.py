@@ -154,3 +154,6 @@ UPDATE_PRICE_WITHOUT_PRICE_JSON = {"items": [{"productSystemId": "7781c7c7-4281-
 UPDATE_PRICE_WITH_PRICE_AS_LETTERS_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-16","price": "price"}]}
 UPDATE_PRICE_WITH_PRICE_AS_FRACTIONAL_NUMBER_COMMA_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-8","price": "1000,1"}]}
 UPDATE_PRICE_WITH_PRICE_AS_SYMBOL_JSON= {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-8","price": "#"}]}
+
+# JSON'ы для получения информации об остатках
+GET_STOCKS_JSON = {"CompanyId": "dihouse", "products": [{"productId": "77bf7684-0ee4-473e-962e-28384154b70b"}]}
