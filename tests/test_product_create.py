@@ -12,6 +12,7 @@ def test_create_product_with_optional_positive():
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('201')
+    print(test_object.response['201'])
 
 # Тест на создание товара с передачей 1 валидного элемента с указанием необязательных ключей
 @pytest.mark.run(order=40)

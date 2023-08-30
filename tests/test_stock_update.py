@@ -27,7 +27,7 @@ def test_update_stock_with_quantity_as_string_positive():
     response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=INTERNAL_HEADERS, json=UPDATE_STOCK_WITH_QUANTITY_AS_STRING_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
-    test_object.assert_operation_code('400')      
+    test_object.assert_operation_code('200')      
 
 # Тест на обновление нескольких остатков с различными складами
 @pytest.mark.run(order=80)

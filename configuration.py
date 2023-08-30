@@ -157,5 +157,7 @@ UPDATE_PRICE_WITH_PRICE_AS_SYMBOL_JSON= {"items": [{"productSystemId": "7781c7c7
 
 # JSON'ы для получения информации об остатках
 GET_STOCKS_JSON = {"CompanyId": "dihouse", "products": [{"productId": "119f1969-d289-4791-90e8-a5e8e83a959c"}]}
+GET_STOCKS_NOT_VALID_GUID_JSON = {"CompanyId": "dihouse", "products": [{"productId": "111a1111-a111-1111-11a1-a1a1a11a111a"}]}
+GET_STOCKS_NOT_GUID_JSON = {"CompanyId": "dihouse", "products": [{"productId": "111a1111"}]}
 GET_STOCKS_BAD_GUID_JSON = {"CompanyId": "dihouse", "products": [{"productId": "119f1969-d289-4791-90e8-a5e8e83a959c-1"}]}
 GET_STOCKS_TWO_ITEM_JSON = {"CompanyId": "dihouse", "products": [{"productId": "119f1969-d289-4791-90e8-a5e8e83a959c"}, {"productId": "c143eeea-16fa-4d02-97da-9ba6291da4db"}]}

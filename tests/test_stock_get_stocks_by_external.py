@@ -1,7 +1,7 @@
 import pytest 
 import requests
 from requests.auth import HTTPBasicAuth
-from configuration import SERVICE_URL, GETTING_STOCKS_PAGE, EXTERNAL_LOGIN, EXTERNAL_PASSWORD, EXTERNAL_HEADERS, EMPTY_JSON, GET_STOCKS_JSON, GET_STOCKS_TWO_ITEM_JSON
+from configuration import SERVICE_URL, GETTING_STOCKS_PAGE, EXTERNAL_LOGIN, EXTERNAL_PASSWORD, EXTERNAL_HEADERS, EMPTY_JSON, GET_STOCKS_JSON, GET_STOCKS_NOT_VALID_GUID_JSON, GET_STOCKS_NOT_GUID_JSON, GET_STOCKS_TWO_ITEM_JSON
 from src.baseclasses.response import Response
 from src.pydantic_schemas.create_category_pydantic import CreateCategorySuccessResponse, CreateCategorySuccessItem, CreateCategorySuccessStatusCode
 
@@ -23,11 +23,27 @@ def test_get_stocks_positive():
 # !!!!!!! В данный тест надо дописать проверку возвращаемых данных. Необходимо проверять правильные ли данные в ответе, а также верно ли запрашиваемое количество с тем,
 # что задумано для теста
 @pytest.mark.run(order=100)
-def test_get_stocks_positive():
+def test_get_stocks_2_valid_positive():
     response = requests.post(url=SERVICE_URL + GETTING_STOCKS_PAGE, auth=HTTPBasicAuth(EXTERNAL_LOGIN, EXTERNAL_PASSWORD), headers=EXTERNAL_HEADERS, json=GET_STOCKS_TWO_ITEM_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('200')    
+
+# Тест на получение остатка с передачей 1 невалидного (несуществующего) GUID 
+@pytest.mark.run(order=100)
+def test_get_stocks_not_valid_guid_negative():
+    response = requests.post(url=SERVICE_URL + GETTING_STOCKS_PAGE, auth=HTTPBasicAuth(EXTERNAL_LOGIN, EXTERNAL_PASSWORD), headers=EXTERNAL_HEADERS, json=GET_STOCKS_NOT_VALID_GUID_JSON)
+    test_object = Response(response)
+    test_object.assert_status_code(200)
+    test_object.assert_operation_code('400')    
+
+# Тест на получение остатка с передачей 1 невалидного GUID. То есть productId не соответствует формату GUID
+@pytest.mark.run(order=100)
+def test_get_stocks_not_guid_negative():
+    response = requests.post(url=SERVICE_URL + GETTING_STOCKS_PAGE, auth=HTTPBasicAuth(EXTERNAL_LOGIN, EXTERNAL_PASSWORD), headers=EXTERNAL_HEADERS, json=GET_STOCKS_NOT_GUID_JSON)
+    test_object = Response(response)
+    test_object.assert_status_code(200)
+    test_object.assert_operation_code('400')       
 
 # Тест на отправку пустого содержимого JSON'a
 @pytest.mark.run(order=100)
