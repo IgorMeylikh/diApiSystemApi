@@ -1,4 +1,4 @@
-SERVICE_URL = 'http://esb:8052/'
+SERVICE_URL = 'http://esb:8055/'
 REQUETS_ID = '1'
 INTERNAL_SENDER_SYSTEM = 'meylikh'
 
@@ -6,7 +6,8 @@ INTERNAL_LOGIN = 'system@di-house.ru'
 INTERNAL_PASSWORD = 'Password1!'
 INTERNAL_HEADERS = {'Content-type': 'application/json', 'Accept': 'text/plain', 'requestId': REQUETS_ID, 'senderSystem': INTERNAL_SENDER_SYSTEM}
 
-EXTERNAL_SENDER_SYSTEM = 'meylikh_test_consumer'
+# EXTERNAL_SENDER_SYSTEM = 'meylikh_test_consumer'
+EXTERNAL_SENDER_SYSTEM = 'testconsumer'
 
 EXTERNAL_LOGIN = 'consumer@di-house.ru'
 EXTERNAL_PASSWORD = 'Password1!'
@@ -126,13 +127,13 @@ DELETE_SEVERAL_PRODUCTS_ONE_PRODUCT_NOT_ISSET_JSON = {"items": [{"productSystemI
 GET_ALL_PRODUCTS = {"items": [{"companyId": "dihouse"}]}
 
 # JSON'ы для обновления остатков
-UPDATE_STOCK_ONE_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a78","warehouseId": "test_wh_1","quantity": 5}]}
-UPDATE_STOCK_SEVERAL_STOCKS_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a79","warehouseId": "test_wh_1","quantity": 7}, {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a73","warehouseId": "test_wh_1","quantity": 2}]}
-UPDATE_STOCK_WITH_QUANTITY_AS_STRING_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a78","warehouseId": "test_wh_1","quantity": "5"}]}
-UPDATE_STOCK_SEVERAL_STOCKS_DIFFERENT_WAREHOUSES_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a74","warehouseId": "test_wh_1","quantity": 7}, {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a19","warehouseId": "test_wh_2","quantity": 13}]}
+UPDATE_STOCK_ONE_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a78","warehouseSystemId": "test_wh_1","quantity": 5}]}
+UPDATE_STOCK_SEVERAL_STOCKS_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a79","warehouseSystemId": "test_wh_1","quantity": 7}, {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a73","warehouseSystemId": "test_wh_1","quantity": 2}]}
+UPDATE_STOCK_WITH_QUANTITY_AS_STRING_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a78","warehouseSystemId": "test_wh_1","quantity": "5"}]}
+UPDATE_STOCK_SEVERAL_STOCKS_DIFFERENT_WAREHOUSES_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a74","warehouseSystemId": "test_wh_1","quantity": 7}, {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a19","warehouseSystemId": "test_wh_2","quantity": 13}]}
 UPDATE_STOCK_ONE_NOT_ISSET_PRODUCT_SYSTEM_ID_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-not-isset-stock","warehouseId": "test_wh_1","quantity": 5}]}
 UPDATE_STOCK_SEVERAL_STOCKS_ONE_NOT_ISSET_PRODUCT_SYSTEM_ID_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a71","warehouseId": "test_wh_1","quantity": 11}, {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-not-isset","warehouseId": "test_wh_1","quantity": 13}]}
-UPDATE_STOCK_ONE_WITHOUT_QUANTITY_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a78","warehouseId": "test_wh_1"}]}
+UPDATE_STOCK_ONE_WITHOUT_QUANTITY_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a78","warehouseSystemId": "test_wh_1"}]}
 UPDATE_STOCK_ONE_WITHOUT_WAREHOUSE_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a78","quantity": 5}]}
 UPDATE_STOCK_ONE_WITHOUT_PRODUCT_SYSTEM_ID_JSON = {"items": [{"quantity": 5,"warehouseId": "test_wh_1"}]}
 UPDATE_STOCK_SEVERAL_STOCKS_SECOND_WITHOUT_QUANTITY_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a79","warehouseId": "test_wh_1","quantity": 7}, {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a73","warehouseId": "test_wh_1"}]}

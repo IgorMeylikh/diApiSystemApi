@@ -22,7 +22,7 @@ def test_update_stock_several_positive():
     test_object.assert_operation_code('200')
 
 # Тест на обновление остатков когда передано количество как строка, но содержащая число. "1000"
-@pytest.mark.run(order=90)
+@pytest.mark.run(order=80)
 def test_update_stock_with_quantity_as_string_positive():
     response = requests.post(url=SERVICE_URL + UPDATE_STOCKS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=INTERNAL_HEADERS, json=UPDATE_STOCK_WITH_QUANTITY_AS_STRING_JSON)
     test_object = Response(response)
