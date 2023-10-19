@@ -30,6 +30,11 @@ DELETE_PRODUCTS_PAGE = 'internal/products/delete'                   #Стран�
 CLEAR_PRODUCTS_PAGE = 'internal/products/clear'                     #Страница очистки всех продуктов
 GETTING_PRODUCTS_PAGE = 'external/products'                         #Страница получения всех продуктов для внешних систем
 
+CREATE_WAREHOUSES_PAGE = 'internal/warehouses/create'              #Страница создания склада
+UPDATE_WAREHOUSES_PAGE = 'internal/warehouses/update'              #Страница обновления склада
+DELETE_WAREHOUSES_PAGE = 'internal/warehouses/delete'              #Страница удаления склада
+CLEAR_WAREHOUSES_PAGE = 'internal/warehouses/clear'                #Страница очистки всех складов
+
 UPDATE_STOCKS_PAGE = 'internal/stocks/update'                       #Страница обновления остатков
 CLEAR_STOCKS_PAGE = 'internal/stocks/clear'                         #Страница очистки остатков
 GETTING_STOCKS_PAGE = 'external/stocks'                             #Страница получения всех остатков для внешних систем
@@ -37,12 +42,6 @@ GETTING_STOCKS_PAGE = 'external/stocks'                             #Стран�
 UPDATE_PRICES_PAGE = 'internal/prices/update'                       #Страница обновления цен
 CLEAR_PRICES_PAGE = 'internal/prices/clear'                         #Страница очистки цен
 GETTING_PRICES_PAGE = 'external/prices'                             #Страница получения всех цен для внешних систем
-
-CREATE_WAREHOUSES_PAGE = 'internal/warehouses/create'              #Страница создания склада
-UPDATE_WAREHOUSES_PAGE = 'internal/warehouses/update'              #Страница обновления склада
-DELETE_WAREHOUSES_PAGE = 'internal/warehouses/delete'              #Страница удаления склада
-CLEAR_WAREHOUSES_PAGE = 'internal/warehouses/clear'                #Страница очистки всех складов
-
 
 CREATE_ORDERS_PAGE = 'external/orders/create'                       #Страница создания заказа для внешних систем
 UPDATE_ORDERS_PAGE = 'external/orders/update'                       #Страница обновления заказа для внешних систем
@@ -139,8 +138,14 @@ DELETE_SEVERAL_PRODUCTS_ONE_PRODUCT_NOT_ISSET_JSON = {"items": [{"productSystemI
 # JSON'ы для получения всех товаров
 GET_ALL_PRODUCTS = {"items": [{"companyId": "dihouse"}]}
 
+# JSON'ы для работы со складами (создание)
+CREATE_ONE_WAREHOUSE = {"items": [{"warehouseSystemId": "0000001","name": "Склад основной"}]}
+CREATE_SEVERAL_WAREHOUSES = {"items": [{"warehouseSystemId": "0000002","name": "Склад региональный"},{"warehouseSystemId": "0000003","name": "Склад сельский"}]}
+# JSON'ы для работы со складами (обновление)
+# JSON'ы для работы со складами (удаление)
+
 # JSON'ы для обновления остатков
-{"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76","stocks": [{"warehouseSystemId": "0000001","quantity": 10},{"warehouseSystemId": "0000002","quantity": 10000}]},{"productSystemId": "77817569-4281-40ab-bf6e-146c78f94854","stocks": [{"warehouseSystemId": "0000001","quantity": 10000000}]}]}
+#{"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76","stocks": [{"warehouseSystemId": "0000001","quantity": 10},{"warehouseSystemId": "0000002","quantity": 10000}]},{"productSystemId": "77817569-4281-40ab-bf6e-146c78f94854","stocks": [{"warehouseSystemId": "0000001","quantity": 10000000}]}]}
 
 
 UPDATE_STOCK_ONE_PRODUCT_ONE_WH_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a78","warehouseSystemId": "test_wh_1","quantity": 5}]}
