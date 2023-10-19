@@ -1,16 +1,21 @@
-SERVICE_URL = 'http://esb:8055/'
+SERVICE_URL = 'http://esb:6052/'
 REQUETS_ID = '1'
-INTERNAL_SENDER_SYSTEM = 'meylikh'
+INTERNAL_SENDER_SYSTEM = 'erpdh' # API-KEY erpdh
 
-INTERNAL_LOGIN = 'system@di-house.ru'
-INTERNAL_PASSWORD = 'Password1!'
+# INTERNAL_LOGIN = 'system@di-house.ru'
+# INTERNAL_PASSWORD = 'Password1!'
+INTERNAL_LOGIN = 'b2bsystemadmin'
+INTERNAL_PASSWORD = 'mAXHdugY@!'
 INTERNAL_HEADERS = {'Content-type': 'application/json', 'Accept': 'text/plain', 'requestId': REQUETS_ID, 'senderSystem': INTERNAL_SENDER_SYSTEM}
 
 # EXTERNAL_SENDER_SYSTEM = 'meylikh_test_consumer'
-EXTERNAL_SENDER_SYSTEM = 'testconsumer'
+# EXTERNAL_SENDER_SYSTEM = 'testconsumer'
+EXTERNAL_SENDER_SYSTEM = 'xcom0511' # API-KEY xcom0511
 
-EXTERNAL_LOGIN = 'consumer@di-house.ru'
-EXTERNAL_PASSWORD = 'Password1!'
+# EXTERNAL_LOGIN = 'consumer@di-house.ru'
+# EXTERNAL_PASSWORD = 'Password1!'
+EXTERNAL_LOGIN = 'b2bconsumeradmin'
+EXTERNAL_PASSWORD = '$eL13jI(US'
 EXTERNAL_HEADERS = {'Content-type': 'application/json', 'Accept': 'text/plain', 'requestId': REQUETS_ID, 'senderSystem': EXTERNAL_SENDER_SYSTEM}
 
 
@@ -32,6 +37,12 @@ GETTING_STOCKS_PAGE = 'external/stocks'                             #Стран�
 UPDATE_PRICES_PAGE = 'internal/prices/update'                       #Страница обновления цен
 CLEAR_PRICES_PAGE = 'internal/prices/clear'                         #Страница очистки цен
 GETTING_PRICES_PAGE = 'external/prices'                             #Страница получения всех цен для внешних систем
+
+CREATE_WAREHOUSES_PAGE = 'internal/warehouses/create'              #Страница создания склада
+UPDATE_WAREHOUSES_PAGE = 'internal/warehouses/update'              #Страница обновления склада
+DELETE_WAREHOUSES_PAGE = 'internal/warehouses/delete'              #Страница удаления склада
+CLEAR_WAREHOUSES_PAGE = 'internal/warehouses/clear'                #Страница очистки всех складов
+
 
 CREATE_ORDERS_PAGE = 'external/orders/create'                       #Страница создания заказа для внешних систем
 UPDATE_ORDERS_PAGE = 'external/orders/update'                       #Страница обновления заказа для внешних систем
@@ -78,14 +89,14 @@ DELETE_SEVERAL_CATEGORIES_JSON = {"items": [{"categorySystemId": "test_2_id"}, {
 DELETE_ONE_NOT_ISSET_CATEGORY_JSON = {"items": [{"categorySystemId": "test_7_id"}]}
 
 # JSON'ы для работы с товарами (создание)
-CREATE_ONE_PRODUCT_WITH_OPTIONAL_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a71", "name": "Тестовый товар 1", "sku": "TEST-SKU-1", "type": "product", "categorySystemId": "meylikh_1_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}]}
+CREATE_ONE_PRODUCT_WITH_OPTIONAL_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a71", "name": "Тестовый товар 1", "sku": "TEST-SKU-1", "brand": "Huawei", "type": "product", "maxStockRange": 10, "categorySystemId": "meylikh_1_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}]}
 CREATE_ONE_PRODUCT_WITHOUT_OPTIONAL_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a72", "name": "Тестовый товар 2", "sku": "TEST-SKU-2", "type": "product"}]}
-CREATE_ONE_PRODUCT_WITH_REPEAT_GUID_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a71", "name": "REPEAT GUID", "sku": "TEST-GUID-REPEAT", "type": "product", "categorySystemId": "meylikh_1_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}]}
-CREATE_ONE_PRODUCT_WITH_REPEAT_SKU_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-SKU-REPEAT", "name": "REPEAT SKU", "sku": "TEST-SKU-1", "type": "product", "categorySystemId": "meylikh_1_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}]}
-CREATE_SEVERAL_PRODUCTS_WITH_OPTIONAL_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a73", "name": "Тестовый товар 3", "sku": "TEST-SKU-3", "type": "product", "categorySystemId": "meylikh_2_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}, 
-                                                        {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a74", "name": "Тестовый товар 4", "sku": "TEST-SKU-4", "type": "product", "categorySystemId": "meylikh_2_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}, 
-                                                        {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a75", "name": "Тестовый товар 5", "sku": "TEST-SKU-5", "type": "product", "categorySystemId": "meylikh_3_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}, 
-                                                        {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76", "name": "Тестовый товар 6", "sku": "TEST-SKU-6", "type": "product", "categorySystemId": "meylikh_3_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}]}
+CREATE_ONE_PRODUCT_WITH_REPEAT_GUID_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a71", "name": "REPEAT GUID", "sku": "TEST-GUID-REPEAT", "brand": "Huawei", "type": "product", "maxStockRange": 10, "categorySystemId": "meylikh_1_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}]}
+CREATE_ONE_PRODUCT_WITH_REPEAT_SKU_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-SKU-REPEAT", "name": "REPEAT SKU", "sku": "TEST-SKU-1", "brand": "Huawei", "type": "product", "maxStockRange": 10, "categorySystemId": "meylikh_1_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}]}
+CREATE_SEVERAL_PRODUCTS_WITH_OPTIONAL_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a73", "name": "Тестовый товар 3", "sku": "TEST-SKU-3", "brand": "Huawei", "type": "product", "maxStockRange": 10, "categorySystemId": "meylikh_2_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}, 
+                                                        {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a74", "name": "Тестовый товар 4", "sku": "TEST-SKU-4", "brand": "Huawei", "type": "product", "maxStockRange": 10, "categorySystemId": "meylikh_2_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}, 
+                                                        {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a75", "name": "Тестовый товар 5", "sku": "TEST-SKU-5", "brand": "Huawei", "type": "product", "maxStockRange": 10, "categorySystemId": "meylikh_3_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}, 
+                                                        {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76", "name": "Тестовый товар 6", "sku": "TEST-SKU-6", "brand": "Huawei", "type": "product", "maxStockRange": 10, "categorySystemId": "meylikh_3_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}]}
 CREATE_SEVERAL_PRODUCTS_WITHOUT_OPTIONAL_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a77", "name": "Тестовый товар 7", "sku": "TEST-SKU-7", "type": "product"}, 
                                                         {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a78", "name": "Тестовый товар 8", "sku": "TEST-SKU-8", "type": "product"}, 
                                                         {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a79", "name": "Тестовый товар 9", "sku": "TEST-SKU-9", "type": "product"}, 
@@ -102,6 +113,8 @@ CREATE_SEVERAL_PRODUCTS_WITH_REPEAT_SKU_WITH_OPTIONAL_JSON =  {"items": [{"produ
                                                                          {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a20", "name": "SEVERAL-REPEAT-SKU", "sku": "TEST-SKU-1", "type": "product", "categorySystemId": "meylikh_2_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}]}
 CREATE_ONE_SERVICE_WITH_JS_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-JS", "name": "Тестовый сервис JS", "sku": "TEST-SKU-JS", "type": "service", "categorySystemId": "meylikh_3_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg\" onclick=\"alert('Клик!')\""}]}
 CREATE_ONE_PRODUCT_IN_NOT_ISSET_CATEGORY_SYSTEM_ID_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76-notIssetCategorySystemId", "name": "Тестовый товар notIssetCategorySystemId", "sku": "TEST-SKU-NOT-ISSET-CATEGORY-ID", "type": "product", "categorySystemId": "meylikh_not_isset"}]}
+CREATE_ONE_PRODUCT_WITH_MAX_STOCK_RANGE_AS_STRING_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94030", "name": "MAXSTOCKRANGEASSTRING", "sku": "TEST-SKU-MAXSTOCKRANGEASSTRING", "brand": "Huawei", "type": "product", "maxStockRange": "10", "categorySystemId": "meylikh_1_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}]}
+CREATE_ONE_PRODUCT_WITH_MAX_STOCK_RANGE_IS_STRING_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94031", "name": "MAXSTOCKRANGEISSTRING", "sku": "TEST-SKU-MAXSTOCKRANGEISSTRING", "brand": "Huawei", "type": "product", "maxStockRange": "abcde", "categorySystemId": "meylikh_1_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}]}
 
 # JSON'ы для работы с товарами (обновление)
 UPDATE_ONE_PRODUCT_WITH_OPTIONAL_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a71", "name": "Тестовый товар 1 update", "sku": "TEST-SKU-1-UPDATE", "type": "product", "categorySystemId": "meylikh_2_id", "previewLink": "https://oriontech.ru/upload/iblock/541/541d7aeaa46a115b3c922572fdbcc275.jpg"}]}
@@ -127,7 +140,10 @@ DELETE_SEVERAL_PRODUCTS_ONE_PRODUCT_NOT_ISSET_JSON = {"items": [{"productSystemI
 GET_ALL_PRODUCTS = {"items": [{"companyId": "dihouse"}]}
 
 # JSON'ы для обновления остатков
-UPDATE_STOCK_ONE_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a78","warehouseSystemId": "test_wh_1","quantity": 5}]}
+{"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76","stocks": [{"warehouseSystemId": "0000001","quantity": 10},{"warehouseSystemId": "0000002","quantity": 10000}]},{"productSystemId": "77817569-4281-40ab-bf6e-146c78f94854","stocks": [{"warehouseSystemId": "0000001","quantity": 10000000}]}]}
+
+
+UPDATE_STOCK_ONE_PRODUCT_ONE_WH_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a78","warehouseSystemId": "test_wh_1","quantity": 5}]}
 UPDATE_STOCK_SEVERAL_STOCKS_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a79","warehouseSystemId": "test_wh_1","quantity": 7}, {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a73","warehouseSystemId": "test_wh_1","quantity": 2}]}
 UPDATE_STOCK_WITH_QUANTITY_AS_STRING_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a78","warehouseSystemId": "test_wh_1","quantity": "5"}]}
 UPDATE_STOCK_SEVERAL_STOCKS_DIFFERENT_WAREHOUSES_JSON = {"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a74","warehouseSystemId": "test_wh_1","quantity": 7}, {"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a19","warehouseSystemId": "test_wh_2","quantity": 13}]}

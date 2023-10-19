@@ -1,7 +1,7 @@
 import pytest 
 import requests
 from requests.auth import HTTPBasicAuth
-from configuration import SERVICE_URL, CREATE_PRODUCTS_PAGE, INTERNAL_LOGIN, INTERNAL_PASSWORD, INTERNAL_HEADERS, CREATE_ONE_PRODUCT_WITH_OPTIONAL_JSON, CREATE_ONE_PRODUCT_WITHOUT_OPTIONAL_JSON, CREATE_SEVERAL_PRODUCTS_WITH_OPTIONAL_JSON, EMPTY_JSON, CREATE_ONE_PRODUCT_WITHOUT_PRODUCT_SYSTEM_ID_JSON, CREATE_ONE_PRODUCT_WITHOUT_NAME_JSON, CREATE_ONE_PRODUCT_WITHOUT_SKU_JSON, CREATE_ONE_PRODUCT_WITHOUT_TYPE_JSON, CREATE_SEVERAL_PRODUCTS_WITHOUT_OPTIONAL_JSON, CREATE_ONE_SERVICE_WITH_OPTIONAL_JSON, CREATE_ONE_WORK_WITH_OPTIONAL_JSON, CREATE_ONE_PRODUCT_IN_NOT_ISSET_CATEGORY_SYSTEM_ID_JSON, CREATE_ONE_PRODUCT_WITH_REPEAT_GUID_JSON, CREATE_ONE_PRODUCT_WITH_REPEAT_SKU_JSON, CREATE_ONE_SERVICE_WITH_JS_JSON, CREATE_SEVERAL_PRODUCTS_WITH_REPEAT_GUID_WITH_OPTIONAL_JSON, CREATE_SEVERAL_PRODUCTS_WITH_REPEAT_SKU_WITH_OPTIONAL_JSON
+from configuration import SERVICE_URL, CREATE_PRODUCTS_PAGE, INTERNAL_LOGIN, INTERNAL_PASSWORD, INTERNAL_HEADERS, CREATE_ONE_PRODUCT_WITH_OPTIONAL_JSON, CREATE_ONE_PRODUCT_WITHOUT_OPTIONAL_JSON, CREATE_SEVERAL_PRODUCTS_WITH_OPTIONAL_JSON, EMPTY_JSON, CREATE_ONE_PRODUCT_WITHOUT_PRODUCT_SYSTEM_ID_JSON, CREATE_ONE_PRODUCT_WITHOUT_NAME_JSON, CREATE_ONE_PRODUCT_WITHOUT_SKU_JSON, CREATE_ONE_PRODUCT_WITHOUT_TYPE_JSON, CREATE_SEVERAL_PRODUCTS_WITHOUT_OPTIONAL_JSON, CREATE_ONE_SERVICE_WITH_OPTIONAL_JSON, CREATE_ONE_WORK_WITH_OPTIONAL_JSON, CREATE_ONE_PRODUCT_IN_NOT_ISSET_CATEGORY_SYSTEM_ID_JSON, CREATE_ONE_PRODUCT_WITH_REPEAT_GUID_JSON, CREATE_ONE_PRODUCT_WITH_REPEAT_SKU_JSON, CREATE_ONE_SERVICE_WITH_JS_JSON, CREATE_SEVERAL_PRODUCTS_WITH_REPEAT_GUID_WITH_OPTIONAL_JSON, CREATE_SEVERAL_PRODUCTS_WITH_REPEAT_SKU_WITH_OPTIONAL_JSON, CREATE_ONE_PRODUCT_WITH_MAX_STOCK_RANGE_AS_STRING_JSON, CREATE_ONE_PRODUCT_WITH_MAX_STOCK_RANGE_IS_STRING_JSON
 from src.baseclasses.response import Response
 from src.pydantic_schemas.create_category_pydantic import CreateCategorySuccessResponse, CreateCategorySuccessItem, CreateCategorySuccessStatusCode
 
@@ -135,13 +135,31 @@ def test_create_product_without_type_negative():
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')
 
-#Тест с созданием товара когда в качестве одного из значений параметра передаётся JS. На примере картинки для товара
+# Тест с созданием товара когда в качестве одного из значений параметра передаётся JS. На примере картинки для товара
 @pytest.mark.run(order=40)
 def test_create_product_work_with_js_negative():
     response = requests.post(url=SERVICE_URL + CREATE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=INTERNAL_HEADERS, json=CREATE_ONE_SERVICE_WITH_JS_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('400')
+
+# Тест позитивный на передачу в maxStockRange числа в виде строки.
+@pytest.mark.run(order=40)
+def test_create_product_max_stock_range_as_string_positive():
+    response = requests.post(url=SERVICE_URL + CREATE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=INTERNAL_HEADERS, json=CREATE_ONE_PRODUCT_WITH_MAX_STOCK_RANGE_AS_STRING_JSON)
+    test_object = Response(response)
+    test_object.assert_status_code(200)
+    test_object.assert_operation_code('201')
+
+
+# Тест негативный на передачу в maxStockRange строки (Пример: abcde).
+@pytest.mark.run(order=40)
+def test_create_product_max_stock_range_is_string_negative():
+    response = requests.post(url=SERVICE_URL + CREATE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=INTERNAL_HEADERS, json=CREATE_ONE_PRODUCT_WITH_MAX_STOCK_RANGE_IS_STRING_JSON)
+    test_object = Response(response)
+    test_object.assert_status_code(200)
+    test_object.assert_operation_code('400')
+
 
 # Необходимо в тесты добавить сравнение эталонной и возвращаемой схем JSON
 # Для этого для каждого вида запроса, возвращающего свой ответ, написать класс Pydantic, который будет описывать схему ответа JSON
