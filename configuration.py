@@ -145,6 +145,7 @@ CREATE_ISSET_WAREHOUSE_SYSTEM_ID = {"items": [{"warehouseSystemId": "0000001","n
 CREATE_SEVERAL_ONE_ISSET_WAREHOUSE_SYSTEM_ID = {"items": [{"warehouseSystemId": "0000004","name": "Склад деревенский"},{"warehouseSystemId": "0000001","name": "Склад домашний"}]}
 CREATE_ONE_WAREHOUSE_WITHOUT_WAREHOUSE_SYSTEM_ID = {"items": [{"name": "Склад без идентификатора"}]}
 CREATE_ONE_WAREHOUSE_WITHOUT_NAME = {"items": [{"warehouseSystemId": "WithoutName"}]}
+CREATE_ONE_WAREHOUSE_WAREHOUSE_SYSTEM_ID_AS_INT = {"items": [{"warehouseSystemId": 5,"name": "Идентификатор число"}]}
 
 # JSON'ы для работы со складами (обновление)
 UPDATE_ONE_WAREHOUSE = {"items": [{"warehouseSystemId": "0000001","name": "Основной склад"}]}
