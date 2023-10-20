@@ -141,6 +141,9 @@ GET_ALL_PRODUCTS = {"items": [{"companyId": "dihouse"}]}
 # JSON'ы для работы со складами (создание)
 CREATE_ONE_WAREHOUSE = {"items": [{"warehouseSystemId": "0000001","name": "Склад основной"}]}
 CREATE_SEVERAL_WAREHOUSES = {"items": [{"warehouseSystemId": "0000002","name": "Склад региональный"},{"warehouseSystemId": "0000003","name": "Склад сельский"}]}
+CREATE_ISSET_WAREHOUSE_SYSTEM_ID = {"items": [{"warehouseSystemId": "0000001","name": "Склад основной"}]}
+CREATE_SEVERAL_ONE_ISSET_WAREHOUSE_SYSTEM_ID = {"items": [{"warehouseSystemId": "0000004","name": "Склад деревенский"},{"warehouseSystemId": "0000001","name": "Склад домашний"}]}
+
 # JSON'ы для работы со складами (обновление)
 # JSON'ы для работы со складами (удаление)
 
