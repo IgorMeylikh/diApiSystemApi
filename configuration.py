@@ -145,11 +145,23 @@ CREATE_ISSET_WAREHOUSE_SYSTEM_ID = {"items": [{"warehouseSystemId": "0000001","n
 CREATE_SEVERAL_ONE_ISSET_WAREHOUSE_SYSTEM_ID = {"items": [{"warehouseSystemId": "0000004","name": "Склад деревенский"},{"warehouseSystemId": "0000001","name": "Склад домашний"}]}
 CREATE_ONE_WAREHOUSE_WITHOUT_WAREHOUSE_SYSTEM_ID = {"items": [{"name": "Склад без идентификатора"}]}
 CREATE_ONE_WAREHOUSE_WITHOUT_NAME = {"items": [{"warehouseSystemId": "WithoutName"}]}
-CREATE_ONE_WAREHOUSE_WAREHOUSE_SYSTEM_ID_AS_INT = {"items": [{"warehouseSystemId": 5,"name": "Идентификатор число"}]}
+CREATE_ONE_WAREHOUSE_WAREHOUSE_SYSTEM_ID_IS_INT = {"items": [{"warehouseSystemId": 5,"name": "Идентификатор число"}]}
+CREATE_ONE_WAREHOUSE_NAME_WAREHOUSE_IS_INT = {"items": [{"warehouseSystemId": "000006","name": 111}]}
 
 # JSON'ы для работы со складами (обновление)
 UPDATE_ONE_WAREHOUSE = {"items": [{"warehouseSystemId": "0000001","name": "Основной склад"}]}
-                       
+UPDATE_SEVERAL_WAREHOUSES = {"items": [{"warehouseSystemId": "0000002","name": "Региональный склад"},{"warehouseSystemId": "0000003","name": "Сельский склад"}]}
+UPDATE_ONE_NOT_ISSET_WAREHOUSE = {"items": [{"warehouseSystemId": "1000001","name": "Основной склад"}]}
+UPDATE_SEVERAL_WAREHOUSES_ONE_NOT_ISSET = {"items": [{"warehouseSystemId": "0000002","name": "Региональный склад"},{"warehouseSystemId": "1000003","name": "Сельский склад"}]}
+UPDATE_WAREHOUSE_SYSTEM_ID_IS_INT = {"items": [{"warehouseSystemId": 123,"name": "Warehouse system ID is int!!!"}]}
+UPDATE_ONE_WAREHOUSE_NAME_WAREHOUSE_IS_INT = {"items": [{"warehouseSystemId": "000001","name": 111}]}
+UPDATE_SEVERAL_WAREHOUSES_ONE_WAREHOUSE_SYSTEM_ID_IS_INT = {"items": [{"warehouseSystemId": 2,"name": "Склад региональный"},{"warehouseSystemId": "0000003","name": "Склад сельский"}]}
+UPDATE_SEVERAL_WAREHOUSES_ONE_WAREHOUSE_NAME_IS_INT = {"items": [{"warehouseSystemId": "0000002","name": 1},{"warehouseSystemId": "0000003","name": "Сельский склад"}]}
+UPDATE_ONE_WAREHOUSE_WITHOUT_WAREHOUSE_SYSTEM_ID = {"items": [{"name": "Склад региональный"}]}
+UPDATE_ONE_WAREHOUSE_WITHOUT_WAREHOUSE_NAME = {"items": [{"warehouseSystemId": "0000002"}]}
+UPDATE_SEVERAL_WAREHOUSES_ONE_WITHOUT_WAREHOUSE_SYSTEM_ID = {"items": [{"name": "Региональный склад"},{"warehouseSystemId": "0000003","name": "Сельский склад"}]}
+UPDATE_SEVERAL_WAREHOUSES_ONE_WITHOUT_WAREHOUSE_NAME = {"items": [{"warehouseSystemId": "0000002"},{"warehouseSystemId": "0000003","name": "Сельский склад"}]} 
+
 # JSON'ы для работы со складами (удаление)
 
 # JSON'ы для обновления остатков
