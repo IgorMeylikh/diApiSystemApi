@@ -11,6 +11,7 @@ def test_delete_one_product_positive():
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('200')
+    # Возможно после удаление продукта необходимо написать проверку, что продукт действительно удалён.
 
 # Тест на удаление нескольких товаров (с передачей нескольких валидных элементов)
 @pytest.mark.run(order=60)
@@ -19,6 +20,7 @@ def test_delete_one_product_positive():
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('200')
+    # Возможно после удаление продукта необходимо написать проверку, что продукт действительно удалён.
 
 # Тест на удаление несуществующего по GUID товара с передачей 1 валидного элемента
 @pytest.mark.run(order=60)
@@ -36,6 +38,7 @@ def test_delete_several_products_one_product_not_isset_negative():
     test_object.assert_status_code(200)
     test_object.assert_operation_code('200')
     test_object.assert_operation_code('400')
+    # Возможно после удаление продукта необходимо написать проверку, что продукт действительно удалён.
 
 # Тест на отправку пустого содержимого JSON'a
 @pytest.mark.run(order=60)  

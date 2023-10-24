@@ -13,6 +13,7 @@ def test_create_product_with_optional_positive():
     test_object.assert_status_code(200)
     test_object.assert_operation_code('201')
     # print(test_object.response['201'])
+    # Возможно после добавления продукта необходимо написать проверку, что продукт действительно добавлен.
 
 # Тест на создание товара с передачей 1 валидного элемента с указанием необязательных ключей
 @pytest.mark.run(order=40)
@@ -21,6 +22,7 @@ def test_create_product_without_optional_positive():
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('201')
+    # Возможно после добавления продукта необходимо написать проверку, что продукт действительно добавлен.
 
 # Тест на создание нескольких товаров с необязательными параметрами
 @pytest.mark.run(order=40)
@@ -29,6 +31,7 @@ def test_create_product_several_products_with_optional_positive():
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('201')
+    # Возможно после добавления продукта необходимо написать проверку, что продукт действительно добавлен.
 
 # Тест на создание нескольких товаров без необязательных параметров
 @pytest.mark.run(order=40)
@@ -37,6 +40,7 @@ def test_create_product_several_products_without_optional_positive():
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('201')    
+    # Возможно после добавления продукта необходимо написать проверку, что продукт действительно добавлен.
 
 # Тест на создание записи с типом service с передачей 1 валидного элемента с указанием необязательных ключей
 @pytest.mark.run(order=40)
@@ -45,6 +49,7 @@ def test_create_product_service_with_optional_positive():
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('201')
+    # Возможно после добавления продукта необходимо написать проверку, что продукт действительно добавлен.
 
 # Тест на создание записи с типом work с передачей 1 валидного элемента с указанием необязательных ключей
 @pytest.mark.run(order=40)
@@ -53,6 +58,7 @@ def test_create_product_work_with_optional_positive():
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('201')
+    # Возможно после добавления продукта необходимо написать проверку, что продукт действительно добавлен.
 
 # Тест на создание товара с передачей 1 валидного элемента с указанием несуществующей категории
 @pytest.mark.run(order=40)
@@ -85,6 +91,7 @@ def test_create_product_several_products_one_repeat_guid_negative():
     test_object = Response(response)
     test_object.assert_status_code(200)
     test_object.assert_operation_code('201')
+    # Возможно после добавления продукта необходимо написать проверку, что продукт действительно добавлен.
     test_object.assert_operation_code('400')
 
 # Тест на создание нескольких товаров, один из которых с уже добавленным ранее SKU
