@@ -34,6 +34,7 @@ def test_delete_several_products_one_product_not_isset_negative():
     response = requests.post(url=SERVICE_URL + DELETE_PRODUCTS_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=INTERNAL_HEADERS, json=DELETE_SEVERAL_PRODUCTS_ONE_PRODUCT_NOT_ISSET_JSON)
     test_object = Response(response)
     test_object.assert_status_code(200)
+    test_object.assert_operation_code('200')
     test_object.assert_operation_code('400')
 
 # Тест на отправку пустого содержимого JSON'a

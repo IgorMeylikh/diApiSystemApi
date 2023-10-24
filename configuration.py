@@ -147,6 +147,10 @@ CREATE_ONE_WAREHOUSE_WITHOUT_WAREHOUSE_SYSTEM_ID = {"items": [{"name": "Скла
 CREATE_ONE_WAREHOUSE_WITHOUT_NAME = {"items": [{"warehouseSystemId": "WithoutName"}]}
 CREATE_ONE_WAREHOUSE_WAREHOUSE_SYSTEM_ID_IS_INT = {"items": [{"warehouseSystemId": 5,"name": "Идентификатор число"}]}
 CREATE_ONE_WAREHOUSE_NAME_WAREHOUSE_IS_INT = {"items": [{"warehouseSystemId": "000006","name": 111}]}
+CREATE_SEVERAL_ONE_WAREHOUSE_SYSTEM_ID_IS_INT = {"items": [{"warehouseSystemId": 7,"name": "Склад числовой"},{"warehouseSystemId": "0000008","name": "Склад восьмой"}]}
+CREATE_SEVERAL_ONE_NAME_IS_INT = {"items": [{"warehouseSystemId": "0000009","name": 222},{"warehouseSystemId": "0000010","name": "Склад сельский"}]}
+CREATE_SEVERAL_ONE_NOT_ISSET_WAREHOUSE_SYSTEM_ID = {"items": [{"name": "Нет warehouseSystemId"},{"warehouseSystemId": "0000011","name": "Склад одиннадцатый"}]}
+CREATE_SEVERAL_ONE_NOT_ISSET_NAME = {"items": [{"warehouseSystemId": "0000012"},{"warehouseSystemId": "0000013","name": "Склад 13"}]}
 
 # JSON'ы для работы со складами (обновление)
 UPDATE_ONE_WAREHOUSE = {"items": [{"warehouseSystemId": "0000001","name": "Основной склад"}]}
@@ -163,6 +167,10 @@ UPDATE_SEVERAL_WAREHOUSES_ONE_WITHOUT_WAREHOUSE_SYSTEM_ID = {"items": [{"name": 
 UPDATE_SEVERAL_WAREHOUSES_ONE_WITHOUT_WAREHOUSE_NAME = {"items": [{"warehouseSystemId": "0000002"},{"warehouseSystemId": "0000003","name": "Сельский склад"}]} 
 
 # JSON'ы для работы со складами (удаление)
+DELETE_ONE_WAREHOUSE = {"items": [{"warehouseSystemId": "0000004"}]}
+DELETE_ONE_NOT_ISSET_WAREHOUSE = {"items": [{"warehouseSystemId": "1000001"}]}
+DELETE_SEVERAL_WAREHOUSES = {"items": [{"warehouseSystemId": "0000002"}, {"warehouseSystemId": "0000003"}]}
+DELETE_SEVERAL_WAREHOUSES_ONE_NOT_ISSSET = {"items": [{"warehouseSystemId": "1000001"}, {"warehouseSystemId": "0000001"}]}
 
 # JSON'ы для обновления остатков
 #{"items": [{"productSystemId": "7781c7c7-4281-40ab-bf6e-146c78f94a76","stocks": [{"warehouseSystemId": "0000001","quantity": 10},{"warehouseSystemId": "0000002","quantity": 10000}]},{"productSystemId": "77817569-4281-40ab-bf6e-146c78f94854","stocks": [{"warehouseSystemId": "0000001","quantity": 10000000}]}]}
