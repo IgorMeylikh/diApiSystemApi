@@ -1,9 +1,10 @@
 import pytest 
 import requests
 from requests.auth import HTTPBasicAuth
-from configuration import SERVICE_URL, CREATE_CATEGORIES_PAGE, INTERNAL_LOGIN, INTERNAL_PASSWORD, INTERNAL_HEADERS, CREATE_ONE_CATEGORY_JSON, CREATE_REPEAT_ONE_CATEGORY_JSON, CREATE_VALIDATE_CATEGORY_AND_REPEAT_CATEGORY_JSON, CREATE_VALIDATE_CATEGORY_AND_REPEAT_HIMSELF_CATEGORY_JSON, CREATE_NOT_VALID_JSON, EMPTY_JSON, CREATE_CATEGORY_WITHOUT_CATEGORY_SYSTEM_ID_JSON, CREATE_CATEGORY_WITHOUT_NAME_JSON, CREATE_SEVERAL_CATEGORIES_JSON
+from configuration import SERVICE_URL, CREATE_CATEGORIES_PAGE, INTERNAL_LOGIN, INTERNAL_PASSWORD, INTERNAL_HEADERS, CREATE_ONE_CATEGORY_JSON, CREATE_REPEAT_ONE_CATEGORY_JSON, CREATE_VALIDATE_CATEGORY_AND_REPEAT_CATEGORY_JSON, CREATE_VALIDATE_CATEGORY_AND_REPEAT_HIMSELF_CATEGORY_JSON, CREATE_NOT_VALID_JSON, EMPTY_JSON, CREATE_CATEGORY_WITHOUT_CATEGORY_SYSTEM_ID_JSON, CREATE_CATEGORY_WITHOUT_NAME_JSON, CREATE_SEVERAL_CATEGORIES_JSON, CREATE_ONE_SUBCATEGORY_JSON, CREATE_REPEAT_ONE_SUBCATEGORY_JSON
 from src.baseclasses.response import Response
 from src.pydantic_schemas.create_category_pydantic import CreateCategorySuccessResponse, CreateCategorySuccessItem, CreateCategorySuccessStatusCode
+from src.pydantic_schemas.create_subcategory_pydantic import CreateSubcategorySuccessResponse, CreateSubcategorySuccessStatusCode, CreateSubcategorySuccessItem
 
 # Тест на создание категории с передачей 1 валидного элемента
 @pytest.mark.run(order=10)
@@ -23,6 +24,24 @@ def test_create_several_categories_positive():
     test_object.assert_status_code(200)
     test_object.assert_operation_code('201')
     test_object.validateTotalSchema(CreateCategorySuccessResponse)
+
+# Тест на создание подкатегории с передачей 1 валидного элемента
+@pytest.mark.run(order=15)
+def test_create_subcategory_positive():
+    response = requests.post(url=SERVICE_URL + CREATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=INTERNAL_HEADERS, json=CREATE_ONE_SUBCATEGORY_JSON)
+    test_object = Response(response)
+    test_object.assert_status_code(200)
+    test_object.assert_operation_code('201')
+    test_object.validateTotalSchema(CreateSubcategorySuccessResponse)    
+
+# Тест на создание подкатегории, которая уже существует системе
+@pytest.mark.run(order=15)
+# @pytest.mark.skip('Operation code 400 is not isset')ьые
+def test_create_repeat_subcategory_negative():
+    response = requests.post(url=SERVICE_URL + CREATE_CATEGORIES_PAGE, auth=HTTPBasicAuth(INTERNAL_LOGIN, INTERNAL_PASSWORD), headers=INTERNAL_HEADERS, json=CREATE_REPEAT_ONE_SUBCATEGORY_JSON)
+    test_object = Response(response)
+    test_object.assert_status_code(200)
+    test_object.assert_operation_code('400')
 
 # Тест на создание категории, которая уже существует системе
 @pytest.mark.run(order=10)
@@ -118,4 +137,7 @@ def test_create_category_without_category_system_id_json_negative():
 
 # Возможно в тесты стоит дописать проверку каких кодов не должно быть в ответе, а то пройдёт 201 как успешная, 
 # но ещё там 400 каким-то образом. Или наоборот проверяем, что только 400, а окажется, что один из добавляемых элементов прошёл успешно, хотя не должен был
+
+
+
 
