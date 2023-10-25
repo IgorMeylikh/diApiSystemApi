@@ -30,6 +30,11 @@ DELETE_PRODUCTS_PAGE = 'internal/products/delete'                   #Стран�
 CLEAR_PRODUCTS_PAGE = 'internal/products/clear'                     #Страница очистки всех продуктов
 GETTING_PRODUCTS_PAGE = 'external/products'                         #Страница получения всех продуктов для внешних систем
 
+CREATE_PRICE_TYPES_PAGE = 'internal/priceTypes/create'              #Страница создания вида цен
+UPDATE_PRICE_TYPES_PAGE = 'internal/priceTypes/update'              #Страница обновления вида цен
+DELETE_PRICE_TYPES_PAGE = 'internal/priceTypes/delete'              #Страница удаления вида цен
+CLEAR_PRICE_TYPES_PAGE = 'internal/priceTypes/clear'                #Страница очистки всех видов цен
+
 CREATE_WAREHOUSES_PAGE = 'internal/warehouses/create'              #Страница создания склада
 UPDATE_WAREHOUSES_PAGE = 'internal/warehouses/update'              #Страница обновления склада
 DELETE_WAREHOUSES_PAGE = 'internal/warehouses/delete'              #Страница удаления склада
