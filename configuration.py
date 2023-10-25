@@ -143,6 +143,17 @@ DELETE_SEVERAL_PRODUCTS_ONE_PRODUCT_NOT_ISSET_JSON = {"items": [{"productSystemI
 # JSON'ы для получения всех товаров
 GET_ALL_PRODUCTS = {"items": [{"companyId": "dihouse"}]}
 
+# JSON'ы для работы с видами цен (создание)
+CREATE_ONE_PRICE_TYPE_WITH_OPTIONAL = {"items": [{"priceTypeSystemId": "000001","name": "РРЦ","currency": 643,"form": 1}]}
+CREATE_ONE_PRICE_TYPE_WITHOUT_OPTIONAL = {"items": [{"priceTypeSystemId": "000002","name": "РРЦ","currency": 643}]}
+CREATE_SEVERAL_PRICE_TYPES_WITH_OPTIONAL = {"items": [{"priceTypeSystemId": "000003","name": "РРЦ","currency": 643}, {"priceTypeSystemId": "000004","name": "РРЦ","currency": 643,"form": 1}]}
+
+# JSON'ы для работы с видами цен (обновление)
+UPDATE_ONE_PRICE_TYPE = {"items": [{"priceTypeSystemId": "000002","name": "РРЦ","currency": 643}]}
+
+# JSON'ы для работы с видами цен (удаление)
+DELETE_ONE_PRICE_TYPE = {"items": [{"priceTypeSystemId": "000002"}]}
+
 # JSON'ы для работы со складами (создание)
 CREATE_ONE_WAREHOUSE = {"items": [{"warehouseSystemId": "0000001","name": "Склад основной"}]}
 CREATE_SEVERAL_WAREHOUSES = {"items": [{"warehouseSystemId": "0000002","name": "Склад региональный"},{"warehouseSystemId": "0000003","name": "Склад сельский"}]}
