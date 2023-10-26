@@ -147,6 +147,16 @@ GET_ALL_PRODUCTS = {"items": [{"companyId": "dihouse"}]}
 CREATE_ONE_PRICE_TYPE_WITH_OPTIONAL = {"items": [{"priceTypeSystemId": "000001","name": "РРЦ","currency": 643,"form": 1}]}
 CREATE_ONE_PRICE_TYPE_WITHOUT_OPTIONAL = {"items": [{"priceTypeSystemId": "000002","name": "РРЦ","currency": 643}]}
 CREATE_SEVERAL_PRICE_TYPES_WITH_OPTIONAL = {"items": [{"priceTypeSystemId": "000003","name": "РРЦ","currency": 643}, {"priceTypeSystemId": "000004","name": "РРЦ","currency": 643,"form": 1}]}
+CREATE_ONE_PRICE_TYPE_WITHOUT_PRICE_TYPE_SYSTEM_ID = {"items": [{"name": "Без priceTypeSystemId","currency": 643}]}
+CREATE_ONE_PRICE_TYPE_WITHOUT_NAME = {"items": [{"priceTypeSystemId": "000005","currency": 643,"form": 1}]}
+CREATE_ONE_PRICE_TYPE_WITHOUT_CURRENCY = {"items": [{"priceTypeSystemId": "000006","name": "РРЦ","form": 0}]}
+CREATE_ONE_PRICE_TYPE_WITH_PRICE_TYPE_SYSTEM_ID_IS_INT = {"items": [{"priceTypeSystemId": 7,"name": "РРЦ","currency": 643,"form": 0}]}
+CREATE_ONE_PRICE_TYPE_WITH_NAME_IS_INT = {"items": [{"priceTypeSystemId": "000008","name": 1,"currency": 643,"form": 1}]}
+CREATE_ONE_PRICE_TYPE_WITH_CURRENCY_AS_STRING = {"items": [{"priceTypeSystemId": "000008","name": "РРЦ","currency": "643","form": 0}]}
+CREATE_ONE_PRICE_TYPE_WITH_CURRENCY_IS_STRING = {"items": [{"priceTypeSystemId": "000009","name": "РРЦ","currency": "sdfs","form": 1}]}
+CREATE_ONE_PRICE_TYPE_WITH_PRICE_TYPE_SYSTEM_ID_IS_EMPTY = {"items": [{"priceTypeSystemId": "","name": "РРЦ","currency": 643,"form": 0}]}
+CREATE_ONE_PRICE_TYPE_WITH_NAME_IS_EMPTY = {"items": [{"priceTypeSystemId": "000010","name": "","currency": 643,"form": 1}]}
+CREATE_ONE_PRICE_TYPE_WITH_CURRENCY_IS_EMPTY = {"items": [{"priceTypeSystemId": "000011","name": "РРЦ","currency": "","form": 1}]}
 
 # JSON'ы для работы с видами цен (обновление)
 UPDATE_ONE_PRICE_TYPE = {"items": [{"priceTypeSystemId": "000002","name": "РРЦ","currency": 643}]}
