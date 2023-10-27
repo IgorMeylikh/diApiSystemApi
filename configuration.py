@@ -160,6 +160,7 @@ CREATE_ONE_PRICE_TYPE_WITH_CURRENCY_IS_EMPTY = {"items": [{"priceTypeSystemId": 
 
 # JSON'ы для работы с видами цен (обновление)
 UPDATE_ONE_PRICE_TYPE = {"items": [{"priceTypeSystemId": "000002","name": "РРЦ","currency": 643}]}
+UPDATE_SEVERAL_PRICE_TYPES = {"items": [{"priceTypeSystemId": "000001","name": "РРЦ Update","currency": 940}, {"priceTypeSystemId": "000002","name": "РРЦ-2","currency": 643}]}
 
 # JSON'ы для работы с видами цен (удаление)
 DELETE_ONE_PRICE_TYPE = {"items": [{"priceTypeSystemId": "000002"}]}
