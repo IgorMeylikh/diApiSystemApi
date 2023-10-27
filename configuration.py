@@ -5,7 +5,7 @@ INTERNAL_SENDER_SYSTEM = 'erpdh' # API-KEY erpdh
 # INTERNAL_LOGIN = 'system@di-house.ru'
 # INTERNAL_PASSWORD = 'Password1!'
 INTERNAL_LOGIN = 'b2bsystemadmin'
-INTERNAL_PASSWORD = 'mAXHdugY@!'
+INTERNAL_PASSWORD = 'ok8g@kW&av'
 INTERNAL_HEADERS = {'Content-type': 'application/json', 'Accept': 'text/plain', 'requestId': REQUETS_ID, 'senderSystem': INTERNAL_SENDER_SYSTEM}
 
 # EXTERNAL_SENDER_SYSTEM = 'meylikh_test_consumer'
